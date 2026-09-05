@@ -4,74 +4,303 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ALI ALZNTANE | PUBG</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
-margin:0;min-height:100vh;padding:20px;
-display:grid;place-items:center;
-font-family:Arial,sans-serif;color:#fff;
+margin:0;
+min-height:100vh;
+padding:20px;
+font-family:Arial,sans-serif;
+color:#fff;
 background:#07090d;
 }
+
 .bg{
-position:fixed;inset:0;z-index:-1;
+position:fixed;
+inset:0;
+z-index:-1;
 background:radial-gradient(circle at 50% 15%,#1b2635,#0b1018 40%,#07090d 75%);
 }
+
 .card{
-width:min(92vw,430px);padding:38px 24px;
-text-align:center;border-radius:28px;
+width:min(92vw,430px);
+padding:38px 24px;
+margin:auto;
+text-align:center;
+border-radius:28px;
 background:rgba(12,15,21,.94);
 border:1px solid #252d39;
 box-shadow:0 25px 80px #0008;
 }
+
 .logo{
-width:155px;height:155px;margin:auto auto 18px;
+width:155px;
+height:155px;
+margin:auto auto 18px;
 border-radius:30px;
-display:grid;place-items:center;
+display:grid;
+place-items:center;
 background:linear-gradient(145deg,#182333,#080b10);
 border:1px solid #303b4b;
 box-shadow:0 15px 35px #0008;
+overflow:hidden;
 }
-.logo-icon{
-width:95px;height:95px;border-radius:22px;
-display:grid;place-items:center;
-background:#fff;
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:30px;
 }
-.logo-icon span{
-font-size:55px;font-weight:900;color:#111;
+
+h1{
+margin:0;
+font-size:29px;
+letter-spacing:1px;
 }
-h1{margin:0;font-size:29px;letter-spacing:1px}
-p{margin:8px 0 26px;color:#9ca7b5;font-size:14px}
+
+p{
+margin:8px 0 26px;
+color:#9ca7b5;
+font-size:14px;
+}
+
 a{
-display:flex;align-items:center;justify-content:space-between;
-gap:14px;text-decoration:none;color:#fff;
-padding:14px 16px;margin:12px 0;border-radius:17px;
-background:#151a22;border:1px solid #29313d;
-font-weight:700;transition:.2s;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+text-decoration:none;
+color:#fff;
+padding:14px 16px;
+margin:12px 0;
+border-radius:17px;
+background:#151a22;
+border:1px solid #29313d;
+font-weight:700;
+transition:.2s;
 }
-a:hover{transform:translateY(-2px);background:#1b222d}
-.label{flex:1;text-align:center;font-size:17px}
+
+a:hover{
+transform:translateY(-2px);
+background:#1b222d;
+}
+
+.label{
+flex:1;
+text-align:center;
+font-size:17px;
+}
+
 .ico{
-width:44px;height:44px;min-width:44px;
-border-radius:13px;display:grid;place-items:center;
+width:44px;
+height:44px;
+min-width:44px;
+border-radius:13px;
+display:grid;
+place-items:center;
 }
-.ico svg{width:27px;height:27px}
+
+.ico svg{
+width:27px;
+height:27px;
+}
+
 .t{background:#171d28}
 .w{background:#123d2c}
 .tg{background:#12364a}
-small{display:block;margin-top:22px;color:#657080;font-size:11px}
+
+small{
+display:block;
+margin-top:22px;
+color:#657080;
+font-size:11px;
+}
+
+/* PUBG */
+
+.pubg-section{
+margin-top:30px;
+padding-top:25px;
+border-top:1px solid #252d39;
+}
+
+.pubg-title{
+font-size:22px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.add-btn{
+width:100%;
+border:0;
+padding:15px;
+border-radius:16px;
+background:#202a38;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-bottom:18px;
+}
+
+.add-btn:hover{
+background:#293649;
+}
+
+.account{
+background:#10151d;
+border:1px solid #29313d;
+border-radius:20px;
+padding:15px;
+margin-top:18px;
+text-align:right;
+}
+
+.account h2{
+margin:0 0 15px;
+font-size:20px;
+text-align:center;
+}
+
+.account-images{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+margin-bottom:15px;
+}
+
+.account-images img{
+width:100%;
+height:140px;
+object-fit:cover;
+border-radius:12px;
+border:1px solid #303b4b;
+}
+
+.info{
+background:#151b24;
+border-radius:13px;
+padding:10px;
+margin:7px 0;
+font-size:14px;
+}
+
+.info b{
+color:#fff;
+}
+
+.delete-btn{
+width:100%;
+border:0;
+padding:11px;
+border-radius:12px;
+background:#351b20;
+color:#ffb5b5;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+.empty{
+color:#687486;
+font-size:13px;
+padding:10px;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+z-index:100;
+padding:20px;
+overflow:auto;
+}
+
+.modal-box{
+width:min(100%,500px);
+margin:30px auto;
+background:#10151d;
+border:1px solid #303b4b;
+border-radius:22px;
+padding:20px;
+}
+
+.modal-box h2{
+text-align:center;
+margin-top:0;
+}
+
+.input-group{
+margin:10px 0;
+}
+
+.input-group label{
+display:block;
+font-size:13px;
+color:#aeb8c6;
+margin-bottom:5px;
+}
+
+.input-group input{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid #303b4b;
+background:#080c12;
+color:#fff;
+outline:none;
+}
+
+.save-btn,
+.close-btn{
+width:100%;
+padding:13px;
+border:0;
+border-radius:13px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+margin-top:8px;
+}
+
+.save-btn{
+background:#26384e;
+color:white;
+}
+
+.close-btn{
+background:#242a33;
+color:#bbb;
+}
+
+.image-note{
+font-size:11px;
+color:#718094;
+margin-top:5px;
+}
 </style>
 </head>
 
 <body>
+
 <div class="bg"></div>
 
 <main class="card">
 
+<!-- الشعار الأصلي -->
 <div class="logo">
-<img src="file_00000000323c8210a4643f0333bc8a0a.png" alt="ALI ALZNTANE" style="width:100%;height:100%;object-fit:cover;border-radius:30px;">
+<img src="file_00000000323c8210a4643f0333bc8a0a.png"
+alt="ALI ALZNTANE">
+</div>
+
 <h1>ALI ALZNTANE</h1>
 <p>PUBG ACCOUNTS • GAMING</p>
 
+<!-- تيك توك الأصلي -->
 <a href="https://www.tiktok.com/@5c.se" target="_blank">
 <span class="label">تيك توك</span>
 <span class="ico t">
@@ -81,6 +310,7 @@ small{display:block;margin-top:22px;color:#657080;font-size:11px}
 </span>
 </a>
 
+<!-- واتساب الأصلي -->
 <a href="https://wa.me/218928773294" target="_blank">
 <span class="label">واتساب</span>
 <span class="ico w">
@@ -90,6 +320,7 @@ small{display:block;margin-top:22px;color:#657080;font-size:11px}
 </span>
 </a>
 
+<!-- تيليجرام الأصلي -->
 <a href="https://t.me/ali_alzntane" target="_blank">
 <span class="label">تيليجرام</span>
 <span class="ico tg">
@@ -99,8 +330,330 @@ small{display:block;margin-top:22px;color:#657080;font-size:11px}
 </span>
 </a>
 
+<!-- حسابات PUBG -->
+<section class="pubg-section">
+
+<div class="pubg-title">
+🎮 حسابات ببجي موبايل العالمية
+</div>
+
+<button class="add-btn" onclick="openModal()">
+➕ إضافة حساب
+</button>
+
+<div id="accounts"></div>
+
+</section>
+
 <small>ALI ALZNTANE</small>
 
 </main>
+
+<!-- نافذة إضافة حساب -->
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<h2>➕ إضافة حساب PUBG</h2>
+
+<div class="input-group">
+<label>اسم الحساب / صاحب الحساب</label>
+<input id="owner" placeholder="مثال: محمد">
+</div>
+
+<div class="input-group">
+<label>الرفقاء</label>
+<input id="friends" placeholder="مثال: 3 رفقاء">
+</div>
+
+<div class="input-group">
+<label>السعر</label>
+<input id="price" placeholder="مثال: 500 د.ل">
+</div>
+
+<div class="input-group">
+<label>اللفل</label>
+<input id="level" placeholder="مثال: 75">
+</div>
+
+<div class="input-group">
+<label>عدد الميثك</label>
+<input id="mythic" placeholder="مثال: 12">
+</div>
+
+<div class="input-group">
+<label>لفل القوة</label>
+<input id="power" placeholder="مثال: 60">
+</div>
+
+<div class="input-group">
+<label>الميثك الذهبي</label>
+<input id="golden" placeholder="اكتب التفاصيل">
+</div>
+
+<div class="input-group">
+<label>أسلحة التطوير</label>
+<input id="weapons" placeholder="مثال: M416 - AKM - UMP">
+</div>
+
+<div class="input-group">
+<label>السيارات</label>
+<input id="cars" placeholder="اكتب السيارات">
+</div>
+
+<div class="input-group">
+<label>بدلات X</label>
+<input id="suits" placeholder="اكتب البدلات">
+</div>
+
+<div class="input-group">
+<label>هاشتاقات</label>
+<input id="hashtags" placeholder="#PUBG #MYTHIC">
+</div>
+
+<div class="input-group">
+<label>صور الحساب - حتى 10 صور</label>
+<input id="images" type="file" accept="image/*" multiple>
+<div class="image-note">
+يمكن اختيار 10 صور كحد أقصى.
+</div>
+</div>
+
+<button class="save-btn" onclick="saveAccount()">
+💾 حفظ الحساب
+</button>
+
+<button class="close-btn" onclick="closeModal()">
+إلغاء
+</button>
+
+</div>
+</div>
+
+<script>
+
+let accounts = JSON.parse(localStorage.getItem("pubgAccounts") || "[]");
+
+function openModal(){
+document.getElementById("modal").style.display="block";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+function saveAccount(){
+
+const owner=document.getElementById("owner").value.trim();
+
+if(!owner){
+alert("اكتب اسم صاحب الحساب");
+return;
+}
+
+const files=document.getElementById("images").files;
+
+if(files.length>10){
+alert("مسموح بحد أقصى 10 صور لكل حساب");
+return;
+}
+
+const account={
+id:Date.now(),
+owner:owner,
+friends:document.getElementById("friends").value,
+price:document.getElementById("price").value,
+level:document.getElementById("level").value,
+mythic:document.getElementById("mythic").value,
+power:document.getElementById("power").value,
+golden:document.getElementById("golden").value,
+weapons:document.getElementById("weapons").value,
+cars:document.getElementById("cars").value,
+suits:document.getElementById("suits").value,
+hashtags:document.getElementById("hashtags").value,
+images:[]
+};
+
+let remaining=files.length;
+
+if(remaining===0){
+
+accounts.push(account);
+localStorage.setItem("pubgAccounts",JSON.stringify(accounts));
+renderAccounts();
+closeModal();
+clearForm();
+return;
+
+}
+
+Array.from(files).forEach(file=>{
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+account.images.push(e.target.result);
+remaining--;
+
+if(remaining===0){
+
+accounts.push(account);
+
+localStorage.setItem(
+"pubgAccounts",
+JSON.stringify(accounts)
+);
+
+renderAccounts();
+closeModal();
+clearForm();
+
+}
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+function renderAccounts(){
+
+const container=document.getElementById("accounts");
+
+if(accounts.length===0){
+
+container.innerHTML=
+'<div class="empty">لا توجد حسابات مضافة حالياً</div>';
+
+return;
+}
+
+container.innerHTML="";
+
+accounts.forEach((account,index)=>{
+
+let images="";
+
+account.images.forEach(img=>{
+
+images+=`
+<img src="${img}" alt="صورة حساب PUBG">
+`;
+
+});
+
+container.innerHTML+=`
+
+<div class="account">
+
+<h2>🎮 حساب ببجي #${index+1}</h2>
+
+${images ? `<div class="account-images">${images}</div>` : ""}
+
+<div class="info">
+👤 <b>صاحب الحساب:</b> ${account.owner}
+</div>
+
+<div class="info">
+👥 <b>الرفقاء:</b> ${account.friends || "-"}
+</div>
+
+<div class="info">
+💰 <b>السعر:</b> ${account.price || "-"}
+</div>
+
+<div class="info">
+🏆 <b>اللفل:</b> ${account.level || "-"}
+</div>
+
+<div class="info">
+💎 <b>عدد الميثك:</b> ${account.mythic || "-"}
+</div>
+
+<div class="info">
+💪 <b>لفل القوة:</b> ${account.power || "-"}
+</div>
+
+<div class="info">
+🟡 <b>الميثك الذهبي:</b> ${account.golden || "-"}
+</div>
+
+<div class="info">
+🔫 <b>أسلحة التطوير:</b> ${account.weapons || "-"}
+</div>
+
+<div class="info">
+🚗 <b>السيارات:</b> ${account.cars || "-"}
+</div>
+
+<div class="info">
+👕 <b>بدلات X:</b> ${account.suits || "-"}
+</div>
+
+<div class="info">
+#️⃣ <b>هاشتاقات:</b> ${account.hashtags || "-"}
+</div>
+
+<button class="delete-btn" onclick="deleteAccount(${account.id})">
+🗑️ حذف الحساب
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function deleteAccount(id){
+
+if(!confirm("هل تريد حذف هذا الحساب؟")){
+return;
+}
+
+accounts=accounts.filter(account=>account.id!==id);
+
+localStorage.setItem(
+"pubgAccounts",
+JSON.stringify(accounts)
+);
+
+renderAccounts();
+
+}
+
+function clearForm(){
+
+const fields=[
+"owner",
+"friends",
+"price",
+"level",
+"mythic",
+"power",
+"golden",
+"weapons",
+"cars",
+"suits",
+"hashtags"
+];
+
+fields.forEach(id=>{
+document.getElementById(id).value="";
+});
+
+document.getElementById("images").value="";
+
+}
+
+renderAccounts();
+
+</script>
+
 </body>
-</html>
+  </html>
+  
