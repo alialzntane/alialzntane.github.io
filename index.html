@@ -40,19 +40,15 @@ width:155px;
 height:155px;
 margin:auto auto 18px;
 border-radius:30px;
-display:grid;
-place-items:center;
-background:linear-gradient(145deg,#182333,#080b10);
+overflow:hidden;
 border:1px solid #303b4b;
 box-shadow:0 15px 35px #0008;
-overflow:hidden;
 }
 
 .logo img{
 width:100%;
 height:100%;
 object-fit:cover;
-border-radius:30px;
 }
 
 h1{
@@ -67,7 +63,7 @@ color:#9ca7b5;
 font-size:14px;
 }
 
-a{
+.social{
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -80,12 +76,6 @@ border-radius:17px;
 background:#151a22;
 border:1px solid #29313d;
 font-weight:700;
-transition:.2s;
-}
-
-a:hover{
-transform:translateY(-2px);
-background:#1b222d;
 }
 
 .label{
@@ -112,15 +102,6 @@ height:27px;
 .w{background:#123d2c}
 .tg{background:#12364a}
 
-small{
-display:block;
-margin-top:22px;
-color:#657080;
-font-size:11px;
-}
-
-/* PUBG */
-
 .pubg-section{
 margin-top:30px;
 padding-top:25px;
@@ -133,7 +114,7 @@ font-weight:900;
 margin-bottom:15px;
 }
 
-.add-btn{
+.add-btn,.login-btn{
 width:100%;
 border:0;
 padding:15px;
@@ -143,11 +124,7 @@ color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
-margin-bottom:18px;
-}
-
-.add-btn:hover{
-background:#293649;
+margin-bottom:10px;
 }
 
 .account{
@@ -178,6 +155,7 @@ height:140px;
 object-fit:cover;
 border-radius:12px;
 border:1px solid #303b4b;
+cursor:pointer;
 }
 
 .info{
@@ -186,10 +164,6 @@ border-radius:13px;
 padding:10px;
 margin:7px 0;
 font-size:14px;
-}
-
-.info b{
-color:#fff;
 }
 
 .delete-btn{
@@ -214,7 +188,7 @@ padding:10px;
 display:none;
 position:fixed;
 inset:0;
-background:#000b;
+background:#000d;
 z-index:100;
 padding:20px;
 overflow:auto;
@@ -255,8 +229,7 @@ color:#fff;
 outline:none;
 }
 
-.save-btn,
-.close-btn{
+.save-btn,.close-btn{
 width:100%;
 padding:13px;
 border:0;
@@ -277,10 +250,27 @@ background:#242a33;
 color:#bbb;
 }
 
+.logout-btn{
+width:100%;
+padding:10px;
+border:0;
+border-radius:12px;
+background:#351b20;
+color:#ffb5b5;
+font-weight:bold;
+cursor:pointer;
+margin-bottom:15px;
+}
+
 .image-note{
 font-size:11px;
 color:#718094;
 margin-top:5px;
+}
+
+.loading{
+padding:20px;
+color:#9ca7b5;
 }
 </style>
 </head>
@@ -291,7 +281,6 @@ margin-top:5px;
 
 <main class="card">
 
-<!-- الشعار الأصلي -->
 <div class="logo">
 <img src="file_00000000323c8210a4643f0333bc8a0a.png"
 alt="ALI ALZNTANE">
@@ -300,8 +289,7 @@ alt="ALI ALZNTANE">
 <h1>ALI ALZNTANE</h1>
 <p>PUBG ACCOUNTS • GAMING</p>
 
-<!-- تيك توك الأصلي -->
-<a href="https://www.tiktok.com/@5c.se" target="_blank">
+<a class="social" href="https://www.tiktok.com/@5c.se" target="_blank">
 <span class="label">تيك توك</span>
 <span class="ico t">
 <svg viewBox="0 0 24 24">
@@ -310,18 +298,16 @@ alt="ALI ALZNTANE">
 </span>
 </a>
 
-<!-- واتساب الأصلي -->
-<a href="https://wa.me/218928773294" target="_blank">
+<a class="social" href="https://wa.me/218928773294" target="_blank">
 <span class="label">واتساب</span>
 <span class="ico w">
 <svg viewBox="0 0 24 24">
-<path fill="white" d="M12 3a8.7 8.7 0 0 0-7.6 13l-1 4 4.1-1a8.7 8.7 0 1 0 4.5-16zm0 15.7c-1.4 0-2.7-.4-3.8-1.1l-.3-.2-2.4.6.6-2.3-.2-.3A7 7 0 1 1 12 18.7zm3.8-5.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1-1.1-.5-1.9-1.1-2.6-2.1-.1-.2-.1-.3.1-.4l.5-.6c.1-.1.1-.2.1-.4l-.6-1.4c-.1-.2-.3-.2-.4-.2h-.4c-.1 0-.4.1-.5.3-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.2 1.4 2.2 3.5 3 .5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
+<path fill="white" d="M12 3a8.7 8.7 0 0 0-7.6 13l-1 4 4.1-1a8.7 8.7 0 1 0 4.5-16zm0 15.7c-1.4 0-2.7-.4-3.8-1.1l-.3-.2-2.4.6.6-2.3A7 7 0 1 1 12 18.7zm3.8-5.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1-1.1-.5-1.9-1.1-2.6-2.1-.1-.2-.1-.3.1-.4l.5-.6c.1-.1.1-.2.1-.4l-.6-1.4c-.1-.2-.3-.2-.4-.2h-.4c-.1 0-.4.1-.5.3-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.2 1.4 2.2 3.5 3 .5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
 </svg>
 </span>
 </a>
 
-<!-- تيليجرام الأصلي -->
-<a href="https://t.me/ali_alzntane" target="_blank">
+<a class="social" href="https://t.me/ali_alzntane" target="_blank">
 <span class="label">تيليجرام</span>
 <span class="ico tg">
 <svg viewBox="0 0 24 24">
@@ -330,18 +316,23 @@ alt="ALI ALZNTANE">
 </span>
 </a>
 
-<!-- حسابات PUBG -->
 <section class="pubg-section">
 
 <div class="pubg-title">
 🎮 حسابات ببجي موبايل العالمية
 </div>
 
-<button class="add-btn" onclick="openModal()">
-➕ إضافة حساب
+<div id="adminArea">
+
+<button class="login-btn" onclick="openLogin()">
+🔐 دخول الإدارة
 </button>
 
-<div id="accounts"></div>
+</div>
+
+<div id="accounts">
+<div class="loading">جاري تحميل الحسابات...</div>
+</div>
 
 </section>
 
@@ -349,8 +340,40 @@ alt="ALI ALZNTANE">
 
 </main>
 
+
+<!-- نافذة تسجيل الدخول -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<h2>🔐 دخول الإدارة</h2>
+
+<div class="input-group">
+<label>البريد الإلكتروني</label>
+<input id="loginEmail" type="email">
+</div>
+
+<div class="input-group">
+<label>كلمة المرور</label>
+<input id="loginPassword" type="password">
+</div>
+
+<button class="save-btn" onclick="loginAdmin()">
+دخول
+</button>
+
+<button class="close-btn" onclick="closeLogin()">
+إلغاء
+</button>
+
+</div>
+</div>
+
+
 <!-- نافذة إضافة حساب -->
-<div class="modal" id="modal">
+
+<div class="modal" id="addModal">
 
 <div class="modal-box">
 
@@ -415,7 +438,7 @@ alt="ALI ALZNTANE">
 <label>صور الحساب - حتى 10 صور</label>
 <input id="images" type="file" accept="image/*" multiple>
 <div class="image-note">
-يمكن اختيار 10 صور كحد أقصى.
+اختر 10 صور كحد أقصى.
 </div>
 </div>
 
@@ -423,183 +446,420 @@ alt="ALI ALZNTANE">
 💾 حفظ الحساب
 </button>
 
-<button class="close-btn" onclick="closeModal()">
+<button class="close-btn" onclick="closeAddModal()">
 إلغاء
 </button>
 
 </div>
 </div>
 
-<script>
 
-let accounts = JSON.parse(localStorage.getItem("pubgAccounts") || "[]");
+<script type="module">
 
-function openModal(){
-document.getElementById("modal").style.display="block";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc,
+query,
+orderBy
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+import {
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL,
+deleteObject
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+apiKey: "AIzaSyD1W0255eoUqKur7PohKhm_Z83oj43wTVI",
+authDomain: "ali-pubg-4418e.firebaseapp.com",
+projectId: "ali-pubg-4418e",
+storageBucket: "ali-pubg-4418e.firebasestorage.app",
+messagingSenderId: "859531411276",
+appId: "1:859531411276:web:445f957d53c22ca4bb59e9"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+const storage = getStorage(app);
+const auth = getAuth(app);
+
+
+let currentUser = null;
+
+
+window.openLogin=function(){
+document.getElementById("loginModal").style.display="block";
 }
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
+
+window.closeLogin=function(){
+document.getElementById("loginModal").style.display="none";
 }
 
-function saveAccount(){
+
+window.openAddModal=function(){
+document.getElementById("addModal").style.display="block";
+}
+
+
+window.closeAddModal=function(){
+document.getElementById("addModal").style.display="none";
+}
+
+
+window.loginAdmin=async function(){
+
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+
+if(!email || !password){
+alert("اكتب البريد وكلمة المرور");
+return;
+}
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+closeLogin();
+
+}catch(error){
+
+alert("بيانات الدخول غير صحيحة");
+
+}
+
+}
+
+
+window.logoutAdmin=async function(){
+
+await signOut(auth);
+
+}
+
+
+onAuthStateChanged(auth,(user)=>{
+
+currentUser=user;
+
+renderAdmin();
+
+});
+
+
+function renderAdmin(){
+
+const area=document.getElementById("adminArea");
+
+if(currentUser){
+
+area.innerHTML=`
+
+<button class="add-btn" onclick="openAddModal()">
+➕ إضافة حساب
+</button>
+
+<button class="logout-btn" onclick="logoutAdmin()">
+🚪 تسجيل خروج الإدارة
+</button>
+
+`;
+
+}else{
+
+area.innerHTML=`
+
+<button class="login-btn" onclick="openLogin()">
+🔐 دخول الإدارة
+</button>
+
+`;
+
+}
+
+}
+
+
+window.saveAccount=async function(){
+
+if(!currentUser){
+
+alert("يجب تسجيل الدخول كإدارة أولاً");
+return;
+
+}
 
 const owner=document.getElementById("owner").value.trim();
 
 if(!owner){
+
 alert("اكتب اسم صاحب الحساب");
 return;
+
 }
+
 
 const files=document.getElementById("images").files;
 
+
 if(files.length>10){
-alert("مسموح بحد أقصى 10 صور لكل حساب");
+
+alert("مسموح بحد أقصى 10 صور");
 return;
+
 }
 
-const account={
-id:Date.now(),
+
+const accountData={
+
 owner:owner,
+
 friends:document.getElementById("friends").value,
+
 price:document.getElementById("price").value,
+
 level:document.getElementById("level").value,
+
 mythic:document.getElementById("mythic").value,
+
 power:document.getElementById("power").value,
+
 golden:document.getElementById("golden").value,
+
 weapons:document.getElementById("weapons").value,
+
 cars:document.getElementById("cars").value,
+
 suits:document.getElementById("suits").value,
+
 hashtags:document.getElementById("hashtags").value,
-images:[]
+
+images:[],
+
+createdAt:Date.now()
+
 };
 
-let remaining=files.length;
 
-if(remaining===0){
+try{
 
-accounts.push(account);
-localStorage.setItem("pubgAccounts",JSON.stringify(accounts));
-renderAccounts();
-closeModal();
-clearForm();
-return;
+document.querySelector(".save-btn").disabled=true;
 
-}
 
-Array.from(files).forEach(file=>{
+for(let i=0;i<files.length;i++){
 
-const reader=new FileReader();
+const file=files[i];
 
-reader.onload=function(e){
-
-account.images.push(e.target.result);
-remaining--;
-
-if(remaining===0){
-
-accounts.push(account);
-
-localStorage.setItem(
-"pubgAccounts",
-JSON.stringify(accounts)
+const imageRef=ref(
+storage,
+"pubg-accounts/"+Date.now()+"_"+i+"_"+file.name
 );
 
-renderAccounts();
-closeModal();
-clearForm();
+await uploadBytes(imageRef,file);
 
-}
+const url=await getDownloadURL(imageRef);
 
-};
-
-reader.readAsDataURL(file);
-
+accountData.images.push({
+url:url,
+path:imageRef.fullPath
 });
 
 }
 
-function renderAccounts(){
+
+await addDoc(
+collection(db,"pubgAccounts"),
+accountData
+);
+
+
+alert("تم إضافة الحساب بنجاح ✅");
+
+closeAddModal();
+
+clearForm();
+
+loadAccounts();
+
+
+}catch(error){
+
+console.error(error);
+
+alert("حدث خطأ أثناء إضافة الحساب");
+
+}finally{
+
+document.querySelector(".save-btn").disabled=false;
+
+}
+
+}
+
+
+async function loadAccounts(){
 
 const container=document.getElementById("accounts");
 
-if(accounts.length===0){
+container.innerHTML=
+'<div class="loading">جاري تحميل الحسابات...</div>';
+
+
+try{
+
+const q=query(
+collection(db,"pubgAccounts"),
+orderBy("createdAt","desc")
+);
+
+const snapshot=await getDocs(q);
+
+
+if(snapshot.empty){
 
 container.innerHTML=
 '<div class="empty">لا توجد حسابات مضافة حالياً</div>';
 
 return;
+
 }
+
 
 container.innerHTML="";
 
-accounts.forEach((account,index)=>{
+
+snapshot.forEach((item)=>{
+
+const account=item.data();
+
+const id=item.id;
+
 
 let images="";
 
-account.images.forEach(img=>{
+if(account.images && account.images.length){
 
-images+=`
-<img src="${img}" alt="صورة حساب PUBG">
+images=`
+
+<div class="account-images">
+
+${account.images.map(img=>`
+
+<img
+src="${img.url}"
+alt="صورة حساب PUBG"
+onclick="window.open('${img.url}','_blank')"
+>
+
+`).join("")}
+
+</div>
+
 `;
 
-});
+}
+
 
 container.innerHTML+=`
 
 <div class="account">
 
-<h2>🎮 حساب ببجي #${index+1}</h2>
+<h2>🎮 حساب ببجي</h2>
 
-${images ? `<div class="account-images">${images}</div>` : ""}
+${images}
 
 <div class="info">
-👤 <b>صاحب الحساب:</b> ${account.owner}
+👤 <b>صاحب الحساب:</b>
+${escapeHTML(account.owner)}
 </div>
 
 <div class="info">
-👥 <b>الرفقاء:</b> ${account.friends || "-"}
+👥 <b>الرفقاء:</b>
+${escapeHTML(account.friends || "-")}
 </div>
 
 <div class="info">
-💰 <b>السعر:</b> ${account.price || "-"}
+💰 <b>السعر:</b>
+${escapeHTML(account.price || "-")}
 </div>
 
 <div class="info">
-🏆 <b>اللفل:</b> ${account.level || "-"}
+🏆 <b>اللفل:</b>
+${escapeHTML(account.level || "-")}
 </div>
 
 <div class="info">
-💎 <b>عدد الميثك:</b> ${account.mythic || "-"}
+💎 <b>عدد الميثك:</b>
+${escapeHTML(account.mythic || "-")}
 </div>
 
 <div class="info">
-💪 <b>لفل القوة:</b> ${account.power || "-"}
+💪 <b>لفل القوة:</b>
+${escapeHTML(account.power || "-")}
 </div>
 
 <div class="info">
-🟡 <b>الميثك الذهبي:</b> ${account.golden || "-"}
+🟡 <b>الميثك الذهبي:</b>
+${escapeHTML(account.golden || "-")}
 </div>
 
 <div class="info">
-🔫 <b>أسلحة التطوير:</b> ${account.weapons || "-"}
+🔫 <b>أسلحة التطوير:</b>
+${escapeHTML(account.weapons || "-")}
 </div>
 
 <div class="info">
-🚗 <b>السيارات:</b> ${account.cars || "-"}
+🚗 <b>السيارات:</b>
+${escapeHTML(account.cars || "-")}
 </div>
 
 <div class="info">
-👕 <b>بدلات X:</b> ${account.suits || "-"}
+👕 <b>بدلات X:</b>
+${escapeHTML(account.suits || "-")}
 </div>
 
 <div class="info">
-#️⃣ <b>هاشتاقات:</b> ${account.hashtags || "-"}
+#️⃣ <b>هاشتاقات:</b>
+${escapeHTML(account.hashtags || "-")}
 </div>
 
-<button class="delete-btn" onclick="deleteAccount(${account.id})">
+${
+currentUser
+?
+`<button class="delete-btn"
+onclick="deleteAccount('${id}')">
 🗑️ حذف الحساب
-</button>
+</button>`
+:
+""
+}
 
 </div>
 
@@ -607,24 +867,57 @@ ${images ? `<div class="account-images">${images}</div>` : ""}
 
 });
 
+
+}catch(error){
+
+console.error(error);
+
+container.innerHTML=
+'<div class="empty">تعذر تحميل الحسابات</div>';
+
 }
 
-function deleteAccount(id){
+}
+
+
+window.deleteAccount=async function(id){
+
+if(!currentUser){
+
+alert("يجب تسجيل الدخول");
+
+return;
+
+}
+
 
 if(!confirm("هل تريد حذف هذا الحساب؟")){
+
 return;
+
 }
 
-accounts=accounts.filter(account=>account.id!==id);
 
-localStorage.setItem(
-"pubgAccounts",
-JSON.stringify(accounts)
+try{
+
+await deleteDoc(
+doc(db,"pubgAccounts",id)
 );
 
-renderAccounts();
+alert("تم حذف الحساب");
+
+loadAccounts();
+
+}catch(error){
+
+console.error(error);
+
+alert("تعذر حذف الحساب");
 
 }
+
+}
+
 
 function clearForm(){
 
@@ -650,10 +943,21 @@ document.getElementById("images").value="";
 
 }
 
-renderAccounts();
+
+function escapeHTML(value){
+
+const div=document.createElement("div");
+
+div.textContent=value;
+
+return div.innerHTML;
+
+}
+
+
+loadAccounts();
 
 </script>
 
 </body>
-  </html>
-  
+</html>
