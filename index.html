@@ -377,9 +377,13 @@ container.innerHTML=
 
 try{
 
+/*
+قراءة الحسابات من مجموعة accounts
+*/
+
 const snapshot=
 await getDocs(
-collection(db,"pubgAccounts")
+collection(db,"accounts")
 );
 
 
@@ -659,3 +663,4 @@ loadAccounts();
 
 </body>
 </html>
+
