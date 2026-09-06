@@ -459,15 +459,16 @@ $("accounts").textContent=
 
 try{
 
-const q=query(
+/*
+نقرأ المجموعة مباشرة بدون orderBy
+حتى تظهر الحسابات القديمة التي لا تحتوي
+على createdAt.
+*/
 
-collection(db,"accounts"),
-
-orderBy("createdAt","desc")
-
+const snap=
+await getDocs(
+collection(db,"accounts")
 );
-
-const snap=await getDocs(q);
 
 allAccounts=
 snap.docs.map(d=>({
@@ -477,6 +478,24 @@ id:d.id,
 ...d.data()
 
 }));
+
+/*
+ترتيب الحسابات:
+الحسابات التي لديها createdAt أولاً،
+والأحدث في البداية.
+*/
+
+allAccounts.sort((a,b)=>{
+
+const aTime=
+a.createdAt?.toMillis?.() || 0;
+
+const bTime=
+b.createdAt?.toMillis?.() || 0;
+
+return bTime-aTime;
+
+});
 
 renderAccounts();
 
@@ -923,7 +942,7 @@ await updateDoc(
 
 doc(
 db,
-"pubgAccounts",
+"accounts",
 editingId
 ),
 
@@ -950,7 +969,7 @@ await addDoc(
 
 collection(
 db,
-"pubgAccounts"
+"accounts"
 ),
 
 data
@@ -1103,7 +1122,7 @@ await deleteDoc(
 
 doc(
 db,
-"pubgAccounts",
+"accounts",
 id
 )
 
@@ -1257,3 +1276,4 @@ $("images").value="";
 
 </body>
 </html>
+
