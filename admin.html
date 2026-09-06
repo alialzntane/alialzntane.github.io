@@ -3,197 +3,321 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>لوحة إدارة PUBG</title>
-
+<title>إدارة حسابات PUBG</title>
 <style>
 *{box-sizing:border-box}
-
-body{
-margin:0;
-padding:20px;
-font-family:Arial,sans-serif;
-background:#07090d;
-color:#fff;
-}
-
-.box{
-width:min(100%,600px);
-margin:auto;
-background:#10151d;
-border:1px solid #29313d;
-border-radius:24px;
-padding:22px;
-box-shadow:0 20px 70px #0008;
-}
-
-h1{
-text-align:center;
-margin-top:0;
-}
-
-button,input,textarea{
-width:100%;
-padding:13px;
-margin-top:9px;
-border-radius:12px;
-border:1px solid #303b4b;
-font-size:15px;
-}
-
-input,textarea{
-background:#080c12;
-color:#fff;
-outline:none;
-}
-
-textarea{
-min-height:120px;
-resize:vertical;
-}
-
-button{
-background:#26384e;
-color:#fff;
-font-weight:bold;
-cursor:pointer;
-border:0;
-}
-
-.logout{
-background:#351b20;
-color:#ffb5b5;
-}
-
-.post{
-margin-top:20px;
-padding:15px;
-background:#151b24;
-border:1px solid #29313d;
-border-radius:18px;
-}
-
-.post h2{
-text-align:center;
-}
-
-.media{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:8px;
-}
-
-.media img,.media video{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-background:#000;
-}
-
-.actions{
-display:flex;
-gap:8px;
-}
-
-.actions button{
-flex:1;
-}
-
-.delete{
-background:#351b20;
-color:#ffb5b5;
-}
-
-#adminPanel{
-display:none;
-}
-
-#login{
-text-align:center;
-}
-
-.note{
-font-size:12px;
-color:#8d99a8;
-line-height:1.6;
-margin-top:10px;
-}
+body{margin:0;padding:18px;font-family:Arial,sans-serif;background:#07090d;color:#fff}
+.box{width:min(100%,700px);margin:auto;background:#10151d;border:1px solid #29313d;border-radius:24px;padding:20px;box-shadow:0 20px 70px #0008}
+h1,h2{text-align:center}
+button,input,textarea,select{width:100%;padding:13px;margin-top:9px;border-radius:12px;border:1px solid #303b4b;font-size:15px}
+input,textarea,select{background:#080c12;color:#fff;outline:none}
+textarea{min-height:90px;resize:vertical}
+button{background:#26384e;color:#fff;font-weight:bold;cursor:pointer;border:0}
+.login{text-align:center;padding:25px 5px}
+.google{background:#fff;color:#222}
+.logout{background:#351b20;color:#ffb5b5}
+.save{background:#16834b}
+.cancel{background:#444}
+.account{margin-top:18px;padding:16px;background:#151b24;border:1px solid #29313d;border-radius:18px}
+.account h3{margin:0 0 8px}
+.account p{margin:7px 0;color:#d7dde5}
+.photos{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.photos img{width:100%;height:180px;object-fit:cover;border-radius:12px;background:#000}
+.actions{display:flex;gap:8px}
+.actions button{flex:1}
+.edit{background:#315c91}
+.delete{background:#7b2028}
+.hidden{display:none}
+.note{font-size:12px;color:#9ba6b5;line-height:1.6}
+#status{margin-top:10px;text-align:center}
 </style>
 </head>
-
 <body>
-
 <div class="box">
 
-<div id="login">
-
-<h1>🔐 إدارة PUBG</h1>
-
-<p>سجل الدخول بحساب Google المسموح له بالإدارة.</p>
-
-<button id="googleLogin">
-🔵 تسجيل الدخول بواسطة Google
-</button>
-
+<div id="login" class="login">
+<h1>🔐 إدارة حسابات PUBG</h1>
+<p>الدخول مسموح لحسابات الإدارة المعتمدة فقط.</p>
+<button id="googleLogin" class="google">🔵 تسجيل الدخول بواسطة Google</button>
+<div id="loginStatus" class="note"></div>
 </div>
 
+<div id="panel" class="hidden">
+<h1>🎮 لوحة إدارة حسابات PUBG</h1>
+<button id="logout" class="logout">🚪 تسجيل الخروج</button>
 
-<div id="adminPanel">
+<div id="form">
+<h2 id="formTitle">➕ إضافة حساب</h2>
 
-<h1>🎮 لوحة إدارة PUBG</h1>
+<input id="owner" placeholder="صاحب الحساب">
+<input id="level" placeholder="لفل">
+<input id="mythic" placeholder="عدد الميثك">
+<input id="power" placeholder="لفل القوة">
+<input id="golden" placeholder="الميثك الذهبي">
+<input id="weapons" placeholder="أسلحة التطوير">
+<input id="cars" placeholder="السيارات">
+<input id="suits" placeholder="بدلات X">
+<input id="hashtags" placeholder="هاشتاقات">
+<input id="friends" placeholder="الرفقاء">
+<input id="popularity" placeholder="الشعبية">
+<input id="binding" placeholder="الربط">
+<input id="price" placeholder="السعر">
 
-<button class="logout" id="logout">
-🚪 تسجيل الخروج
-</button>
+<label style="display:block;margin-top:12px">صور الحساب — حتى 10 صور</label>
+<input id="images" type="file" accept="image/*" multiple>
+<div class="note">عند التعديل، الصور الجديدة تستبدل الصور القديمة. الحد الأقصى 10 صور.</div>
 
-<hr>
-
-<h2>➕ إضافة منشور</h2>
-
-<input id="title" placeholder="اسم المنشور أو صاحب الحساب">
-
-<textarea id="description"
-placeholder="اكتب وصف المنشور هنا"></textarea>
-
-<label>
-<input id="media" type="file" accept="image/*,video/*" multiple>
-</label>
-
-<div class="note">
-يمكنك إضافة صور وفيديوهات.
-الحد الأقصى 10 ملفات للمنشور.
+<div class="actions">
+<button id="save" class="save">💾 حفظ الحساب</button>
+<button id="cancel" class="cancel hidden">إلغاء التعديل</button>
+</div>
+<div id="status"></div>
 </div>
 
-<button id="save">
-💾 نشر
-</button>
+<hr style="border-color:#29313d;margin:22px 0">
 
-<input id="search"
-placeholder="🔎 البحث عن منشور..."
->
-
-<div id="posts">
-جاري التحميل...
+<input id="search" placeholder="🔎 ابحث عن صاحب الحساب...">
+<div id="accounts">جاري تحميل الحسابات...</div>
 </div>
-
 </div>
-
-</div>
-
 
 <script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-doc,
-getDoc,
-updateDoc,
-deleteDoc,
-query,
-orderBy
+  getFirestore, collection, addDoc, getDocs, doc, getDoc,
+  updateDoc, deleteDoc, query, orderBy, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+import {
+  getStorage, ref, uploadBytes, getDownloadURL, deleteObject
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD1W0255eoUqKur7PohKhm_Z83oj43wTVI",
+  authDomain: "ali-pubg-4418e.firebaseapp.com",
+  projectId: "ali-pubg-4418e",
+  storageBucket: "ali-pubg-4418e.firebasestorage.app",
+  messagingSenderId: "859531411276",
+  appId: "1:859531411276:web:445f957d53c22ca4bb59e"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+/* ضع بريدَي الإدارة هنا */
+const ALLOWED_EMAILS = [
+  "ضع_البريد_الأول_هنا",
+  "ضع_البريد_الثاني_هنا"
+];
+
+let allAccounts = [];
+let editingId = null;
+
+const $ = id => document.getElementById(id);
+
+function allowed(user){
+  return user && ALLOWED_EMAILS.map(x=>x.toLowerCase()).includes((user.email||"").toLowerCase());
+}
+
+$("googleLogin").onclick = async () => {
+  $("loginStatus").textContent = "جاري تسجيل الدخول...";
+  try {
+    const result = await signInWithPopup(auth, provider);
+    if(!allowed(result.user)){
+      await signOut(auth);
+      $("loginStatus").textContent = "هذا الحساب غير مسموح له بالدخول.";
+      alert("هذا الحساب غير مسموح له بالإدارة.");
+    }
+  } catch(e) {
+    console.error(e);
+    $("loginStatus").textContent = "تعذر تسجيل الدخول. تأكد من تفعيل Google في Firebase.";
+  }
+};
+
+$("logout").onclick = () => signOut(auth);
+
+onAuthStateChanged(auth, async user => {
+  if(allowed(user)){
+    $("login").classList.add("hidden");
+    $("panel").classList.remove("hidden");
+    await loadAccounts();
+  } else {
+    $("panel").classList.add("hidden");
+    $("login").classList.remove("hidden");
+  }
+});
+
+async function loadAccounts(){
+  $("accounts").textContent = "جاري تحميل الحسابات...";
+  try{
+    const q = query(collection(db,"pubgAccounts"), orderBy("createdAt","desc"));
+    const snap = await getDocs(q);
+    allAccounts = snap.docs.map(d => ({id:d.id,...d.data()}));
+    renderAccounts();
+  }catch(e){
+    console.error(e);
+    $("accounts").innerHTML = "تعذر تحميل الحسابات. تأكد من Firestore Rules.";
+  }
+}
+
+function renderAccounts(){
+  const term = $("search").value.trim().toLowerCase();
+  const list = allAccounts.filter(a =>
+    JSON.stringify(a).toLowerCase().includes(term)
+  );
+
+  if(!list.length){
+    $("accounts").innerHTML = "<p style='text-align:center'>لا توجد حسابات.</p>";
+    return;
+  }
+
+  $("accounts").innerHTML = list.map(a => `
+    <div class="account">
+      <h3>🎮 ${esc(a.owner || "بدون اسم")}</h3>
+      ${row("لفل",a.level)}
+      ${row("عدد الميثك",a.mythic)}
+      ${row("لفل القوة",a.power)}
+      ${row("الميثك الذهبي",a.golden)}
+      ${row("أسلحة التطوير",a.weapons)}
+      ${row("السيارات",a.cars)}
+      ${row("بدلات X",a.suits)}
+      ${row("هاشتاقات",a.hashtags)}
+      ${row("الرفقاء",a.friends)}
+      ${row("الشعبية",a.popularity)}
+      ${row("الربط",a.binding)}
+      ${row("السعر",a.price)}
+      ${a.images?.length ? `<div class="photos">${a.images.map(u=>`<img src="${u}" loading="lazy">`).join("")}</div>` : ""}
+      <div class="actions">
+        <button class="edit" data-edit="${a.id}">✏️ تعديل</button>
+        <button class="delete" data-delete="${a.id}">🗑️ حذف</button>
+      </div>
+    </div>
+  `).join("");
+
+  document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>startEdit(b.dataset.edit));
+  document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>removeAccount(b.dataset.delete));
+}
+
+function row(label,value){
+  return value ? `<p><b>${label}:</b> ${esc(value)}</p>` : "";
+}
+
+function esc(v){
+  return String(v ?? "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+$("search").oninput = renderAccounts;
+
+$("save").onclick = async () => {
+  if(!auth.currentUser || !allowed(auth.currentUser)) return alert("غير مصرح.");
+
+  const files = [...$("images").files];
+  if(files.length > 10) return alert("مسموح بحد أقصى 10 صور.");
+
+  const owner = $("owner").value.trim();
+  if(!owner) return alert("اكتب صاحب الحساب.");
+
+  $("save").disabled = true;
+  $("status").textContent = "جاري الحفظ...";
+
+  try{
+    let images = [];
+    let oldImages = [];
+
+    if(editingId){
+      const old = allAccounts.find(a=>a.id===editingId);
+      oldImages = old?.images || [];
+    }
+
+    if(files.length){
+      for(let i=0;i<files.length;i++){
+        const file = files[i];
+        if(!file.type.startsWith("image/")) throw new Error("يمكن رفع الصور فقط.");
+        const path = `pubg-accounts/${crypto.randomUUID()}-${file.name}`;
+        const r = ref(storage,path);
+        await uploadBytes(r,file);
+        images.push(await getDownloadURL(r));
+      }
+    }else if(editingId){
+      images = oldImages;
+    }
+
+    const data = {
+      owner,
+      level:$("level").value.trim(),
+      mythic:$("mythic").value.trim(),
+      power:$("power").value.trim(),
+      golden:$("golden").value.trim(),
+      weapons:$("weapons").value.trim(),
+      cars:$("cars").value.trim(),
+      suits:$("suits").value.trim(),
+      hashtags:$("hashtags").value.trim(),
+      friends:$("friends").value.trim(),
+      popularity:$("popularity").value.trim(),
+      binding:$("binding").value.trim(),
+      price:$("price").value.trim(),
+      images,
+      updatedAt:serverTimestamp()
+    };
+
+    if(editingId){
+      await updateDoc(doc(db,"pubgAccounts",editingId),data);
+      alert("تم تعديل الحساب ✅");
+    }else{
+      data.createdAt = serverTimestamp();
+      await addDoc(collection(db,"pubgAccounts"),data);
+      alert("تمت إضافة الحساب ✅");
+    }
+
+    resetForm();
+    await loadAccounts();
+  }catch(e){
+    console.error(e);
+    alert("حدث خطأ أثناء الحفظ: " + e.message);
+  }finally{
+    $("save").disabled = false;
+    $("status").textContent = "";
+  }
+};
+
+async function removeAccount(id){
+  if(!confirm("هل تريد حذف هذا الحساب؟")) return;
+  try{
+    await deleteDoc(doc(db,"pubgAccounts",id));
+    alert("تم الحذف ✅");
+    await loadAccounts();
+  }catch(e){
+    console.error(e);
+    alert("تعذر الحذف: "+e.message);
+  }
+}
+
+function startEdit(id){
+  const a = allAccounts.find(x=>x.id===id);
+  if(!a) return;
+  editingId=id;
+  $("formTitle").textContent="✏️ تعديل الحساب";
+  $("cancel").classList.remove("hidden");
+  ["owner","level","mythic","power","golden","weapons","cars","suits","hashtags","friends","popularity","binding","price"]
+    .forEach(k=>$(k).value=a[k]||"");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+$("cancel").onclick=resetForm;
+
+function resetForm(){
+  editingId=null;
+  $("formTitle").textContent="➕ إضافة حساب";
+  $("cancel").classList.add("hidden");
+  ["owner","level","mythic","power","golden","weapons","cars","suits","hashtags","friends","popularity","binding","price"]
+    .forEach(k=>$(k).value="");
+  $("images").value="";
+}
+</script>
+</body>
+</html>
