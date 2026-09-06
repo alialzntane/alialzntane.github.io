@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة إدارة PUBG</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+padding:20px;
+font-family:Arial,sans-serif;
+background:#07090d;
+color:#fff;
+}
+
+.box{
+width:min(100%,600px);
+margin:auto;
+background:#10151d;
+border:1px solid #29313d;
+border-radius:24px;
+padding:22px;
+box-shadow:0 20px 70px #0008;
+}
+
+h1{
+text-align:center;
+margin-top:0;
+}
+
+button,input,textarea{
+width:100%;
+padding:13px;
+margin-top:9px;
+border-radius:12px;
+border:1px solid #303b4b;
+font-size:15px;
+}
+
+input,textarea{
+background:#080c12;
+color:#fff;
+outline:none;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+button{
+background:#26384e;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+border:0;
+}
+
+.logout{
+background:#351b20;
+color:#ffb5b5;
+}
+
+.post{
+margin-top:20px;
+padding:15px;
+background:#151b24;
+border:1px solid #29313d;
+border-radius:18px;
+}
+
+.post h2{
+text-align:center;
+}
+
+.media{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+}
+
+.media img,.media video{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+background:#000;
+}
+
+.actions{
+display:flex;
+gap:8px;
+}
+
+.actions button{
+flex:1;
+}
+
+.delete{
+background:#351b20;
+color:#ffb5b5;
+}
+
+#adminPanel{
+display:none;
+}
+
+#login{
+text-align:center;
+}
+
+.note{
+font-size:12px;
+color:#8d99a8;
+line-height:1.6;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div id="login">
+
+<h1>🔐 إدارة PUBG</h1>
+
+<p>سجل الدخول بحساب Google المسموح له بالإدارة.</p>
+
+<button id="googleLogin">
+🔵 تسجيل الدخول بواسطة Google
+</button>
+
+</div>
+
+
+<div id="adminPanel">
+
+<h1>🎮 لوحة إدارة PUBG</h1>
+
+<button class="logout" id="logout">
+🚪 تسجيل الخروج
+</button>
+
+<hr>
+
+<h2>➕ إضافة منشور</h2>
+
+<input id="title" placeholder="اسم المنشور أو صاحب الحساب">
+
+<textarea id="description"
+placeholder="اكتب وصف المنشور هنا"></textarea>
+
+<label>
+<input id="media" type="file" accept="image/*,video/*" multiple>
+</label>
+
+<div class="note">
+يمكنك إضافة صور وفيديوهات.
+الحد الأقصى 10 ملفات للمنشور.
+</div>
+
+<button id="save">
+💾 نشر
+</button>
+
+<input id="search"
+placeholder="🔎 البحث عن منشور..."
+>
+
+<div id="posts">
+جاري التحميل...
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+doc,
+getDoc,
+updateDoc,
+deleteDoc,
+query,
+orderBy
