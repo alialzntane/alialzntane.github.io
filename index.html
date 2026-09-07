@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>ALI ALZNTANE | PUBG</title>
 
 <style>
@@ -18,285 +17,216 @@ html{
 body{
   margin:0;
   min-height:100vh;
+  padding:16px 10px 30px;
   font-family:Arial,sans-serif;
   color:#fff;
   background:
-    radial-gradient(circle at 50% -10%,#1d3043 0%,transparent 38%),
-    #06090d;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-  background-size:35px 35px;
-  mask-image:linear-gradient(to bottom,black,transparent);
+    radial-gradient(circle at 50% -10%,#182534 0%,transparent 38%),
+    #070a0f;
 }
 
 .container{
-  width:min(100%,760px);
+  width:min(100%,680px);
   margin:auto;
-  padding:18px 14px 30px;
 }
 
-/* ================= HEADER ================= */
+/* ===== الهيدر ===== */
 
 .hero{
-  position:relative;
-  overflow:hidden;
-  padding:28px 18px 24px;
   text-align:center;
-  border:1px solid #263544;
-  border-radius:28px;
-  background:
-    linear-gradient(145deg,rgba(20,30,41,.97),rgba(8,12,17,.97));
-  box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  top:-100px;
-  left:-70px;
-  border-radius:50%;
-  background:rgba(75,115,145,.08);
+  padding:28px 15px 22px;
 }
 
 .logo{
-  width:105px;
-  height:105px;
+  width:110px;
+  height:110px;
   object-fit:cover;
-  border-radius:50%;
-  border:3px solid #52677b;
-  box-shadow:
-    0 0 0 7px rgba(255,255,255,.025),
-    0 10px 35px rgba(0,0,0,.55);
+  border-radius:28px;
+  border:1px solid #334252;
+  box-shadow:0 15px 35px rgba(0,0,0,.45);
 }
 
 .site-title{
   margin:16px 0 6px;
   font-size:30px;
-  font-weight:1000;
+  font-weight:900;
   letter-spacing:1px;
 }
 
 .site-subtitle{
-  color:#8997a6;
-  font-size:14px;
+  color:#8794a3;
+  font-size:15px;
+  letter-spacing:.5px;
 }
 
-.hero-line{
-  width:70px;
-  height:3px;
-  margin:16px auto 0;
-  border-radius:20px;
-  background:#71869a;
-}
-
-/* ================= SOCIAL ================= */
+/* ===== التواصل ===== */
 
 .socials{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin:14px 0;
+  gap:10px;
+  margin-bottom:14px;
 }
 
 .socials a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:68px;
+  padding:12px 18px;
+  color:#fff;
   text-decoration:none;
-  color:#e9eef3;
-  text-align:center;
-  padding:13px 5px;
-  border-radius:15px;
-  background:#0d141c;
-  border:1px solid #202e3c;
-  font-size:14px;
+  background:#111720;
+  border:1px solid #27323e;
+  border-radius:20px;
+  font-size:18px;
   font-weight:800;
   transition:.2s;
 }
 
 .socials a:hover{
   transform:translateY(-2px);
-  background:#131d27;
-  border-color:#415365;
+  border-color:#536272;
+  background:#151d27;
 }
 
-/* ================= MAIN BUTTON ================= */
+.socials a::before{
+  font-size:28px;
+}
+
+.socials a:nth-child(1)::before{
+  content:"♪";
+}
+
+.socials a:nth-child(2)::before{
+  content:"◉";
+}
+
+.socials a:nth-child(3)::before{
+  content:"➤";
+}
+
+/* ===== زر الاستفسار ===== */
 
 .accounts-btn{
   display:block;
-  text-decoration:none;
+  padding:16px;
+  margin-bottom:14px;
   text-align:center;
-  padding:17px 14px;
-  margin-bottom:15px;
-  border-radius:17px;
+  text-decoration:none;
   color:#fff;
+  background:#111a23;
+  border:1px solid #334252;
+  border-radius:18px;
   font-size:18px;
   font-weight:900;
-  background:
-    linear-gradient(135deg,#176447,#0d4633);
-  border:1px solid #2a8663;
-  box-shadow:0 12px 30px rgba(0,0,0,.3);
-  transition:.2s;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-.accounts-btn:hover{
-  transform:translateY(-2px);
-}
-
-/* ================= SECTION ================= */
+/* ===== قسم الحسابات ===== */
 
 .pubg-section{
-  padding:14px;
-  border-radius:28px;
-  border:1px solid #202d3a;
-  background:rgba(10,15,21,.94);
-  box-shadow:0 20px 55px rgba(0,0,0,.4);
-}
-
-.section-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin:4px 3px 15px;
+  padding:18px 14px 14px;
+  background:#0c1118;
+  border:1px solid #293542;
+  border-radius:25px;
+  box-shadow:0 18px 45px rgba(0,0,0,.4);
 }
 
 .section-title{
-  margin:0;
-  font-size:22px;
-  font-weight:1000;
-}
-
-.section-badge{
-  padding:7px 11px;
-  border-radius:12px;
-  color:#aab7c4;
-  background:#111923;
-  border:1px solid #23303d;
-  font-size:12px;
-}
-
-/* ================= SEARCH ================= */
-
-.search-wrap{
-  position:relative;
-  margin-bottom:17px;
+  margin:3px 0 16px;
+  text-align:center;
+  font-size:23px;
+  font-weight:900;
 }
 
 .search{
   width:100%;
   height:52px;
   padding:0 17px;
+  margin-bottom:18px;
   outline:none;
-  border-radius:16px;
-  border:1px solid #253442;
-  background:#0c131b;
   color:#fff;
+  background:#080d14;
+  border:1px solid #293644;
+  border-radius:16px;
   font-size:16px;
-  transition:.2s;
 }
 
 .search:focus{
-  border-color:#52687a;
-  box-shadow:0 0 0 3px rgba(100,130,150,.08);
+  border-color:#5a6b7c;
 }
 
 .search::placeholder{
-  color:#667585;
+  color:#657281;
 }
 
-/* ================= ACCOUNT ================= */
+/* ===== البطاقة ===== */
 
 .account{
-  position:relative;
-  overflow:hidden;
   margin-bottom:20px;
   padding:12px;
-  border-radius:24px;
-  border:1px solid #283746;
+  overflow:hidden;
   background:
-    linear-gradient(145deg,#121b25,#0a1017);
-  box-shadow:
-    0 18px 45px rgba(0,0,0,.4),
-    inset 0 1px 0 rgba(255,255,255,.025);
+    linear-gradient(145deg,#121a23,#0b1017);
+  border:1px solid #2a3744;
+  border-radius:23px;
+  box-shadow:0 15px 35px rgba(0,0,0,.42);
 }
 
-.account:before{
-  content:"";
-  display:block;
-  width:100%;
-  height:3px;
-  margin-bottom:12px;
-  border-radius:20px;
-  background:linear-gradient(90deg,#263746,#8192a1,#263746);
+.account:last-child{
+  margin-bottom:0;
 }
 
-/* ================= ACCOUNT NUMBER ================= */
+.account-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:11px;
+}
 
 .account-number{
-  display:inline-block;
-  margin:0 0 11px;
   padding:7px 11px;
+  color:#b8c4cf;
+  background:#101821;
+  border:1px solid #293744;
   border-radius:11px;
-  color:#c7d0d9;
-  background:#101923;
-  border:1px solid #273542;
   font-size:13px;
   font-weight:900;
 }
 
-/* ================= IMAGES ================= */
+/* ===== الصور ===== */
 
 .account-images{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:9px;
-  margin-bottom:13px;
+  margin-bottom:12px;
 }
 
 .account-images img{
-  display:block;
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:18px;
-  border:1px solid #2b3947;
-  background:#05080b;
-  transition:.25s;
+  display:block;
+  border-radius:17px;
+  border:1px solid #2d3b49;
+  background:#05080c;
 }
 
-.account-images img:hover{
-  transform:scale(1.015);
-  border-color:#566a7b;
-}
+/* ===== المعلومات ===== */
 
-/* ================= INFO GRID ================= */
-
-.info-grid{
+.info-list{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
-  margin-top:8px;
+  gap:7px;
 }
 
 .info{
-  min-height:58px;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:11px;
+  padding:12px 13px;
+  color:#d3d9df;
+  background:#111821;
+  border:1px solid #1e2a35;
   border-radius:14px;
-  background:#101821;
-  border:1px solid #1e2a36;
-  color:#c8d1da;
-  font-size:13px;
+  font-size:15px;
   line-height:1.5;
 }
 
@@ -304,162 +234,138 @@ body:before{
   color:#fff;
 }
 
-/* ================= PRICE ================= */
+/* ===== السعر ===== */
 
 .price-box{
-  position:relative;
-  overflow:hidden;
-  margin:13px 0 9px;
-  padding:18px 12px;
+  margin-top:12px;
+  padding:16px 12px;
   text-align:center;
-  border-radius:18px;
   background:
-    linear-gradient(135deg,#19232e,#0e151d);
-  border:1px solid #435364;
-  box-shadow:inset 0 0 25px rgba(255,255,255,.025);
+    linear-gradient(145deg,#18222d,#101720);
+  border:1px solid #394957;
+  border-radius:17px;
 }
 
-.price-label{
-  display:block;
+.price-title{
+  color:#8c99a6;
+  font-size:13px;
   margin-bottom:5px;
-  color:#8796a5;
-  font-size:12px;
 }
 
-.price-value{
-  font-size:26px;
-  font-weight:1000;
+.price{
+  font-size:25px;
+  font-weight:900;
 }
 
-/* ================= OWNER ================= */
+/* ===== صاحب الحساب ===== */
 
-.owner-box{
+.owner{
   margin-top:8px;
-  padding:13px;
+  padding:12px;
   text-align:center;
-  border-radius:15px;
-  background:#0e161f;
+  color:#c9d1d8;
+  background:#0e151d;
   border:1px solid #202d39;
-  color:#c5ced7;
-  font-size:14px;
+  border-radius:14px;
+  line-height:1.6;
 }
 
-/* ================= CONTACT ================= */
+/* ===== الزر ===== */
 
 .contact-btn{
   display:block;
-  margin-top:11px;
+  margin-top:10px;
   padding:16px 10px;
   text-align:center;
   text-decoration:none;
   color:#fff;
+  background:linear-gradient(135deg,#126445,#0d4834);
+  border:1px solid #267c5a;
   border-radius:16px;
-  background:linear-gradient(135deg,#176447,#0d4935);
-  border:1px solid #298663;
   font-size:18px;
-  font-weight:1000;
-  box-shadow:0 9px 24px rgba(0,0,0,.3);
+  font-weight:900;
   transition:.2s;
 }
 
-.contact-btn:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.08);
+.contact-btn:active{
+  transform:scale(.98);
 }
 
-/* ================= NAME ================= */
+/* ===== الاسم ===== */
 
 .card-site-name{
-  margin-top:11px;
-  padding:12px;
+  margin-top:10px;
+  padding:11px;
   text-align:center;
-  border-radius:14px;
-  background:#0d141c;
-  border:1px solid #263442;
-  color:#dce3e9;
-  font-size:15px;
+  color:#8996a4;
+  background:#0b1118;
+  border:1px solid #202c38;
+  border-radius:13px;
+  font-size:14px;
   font-weight:900;
   letter-spacing:1.5px;
 }
 
-/* ================= LOADING ================= */
+/* ===== التحميل ===== */
 
-.loading,
+.loading{
+  padding:35px 10px;
+  text-align:center;
+  color:#84909d;
+  font-size:16px;
+}
+
 .no-results{
   padding:35px 10px;
   text-align:center;
-  color:#718090;
+  color:#84909d;
 }
+
+/* ===== الفوتر ===== */
 
 .footer{
   padding:22px 0 5px;
   text-align:center;
-  color:#566473;
+  color:#596674;
   font-size:12px;
 }
 
-/* ================= MOBILE ================= */
+/* ===== الجوال ===== */
 
-@media(max-width:520px){
+@media(max-width:500px){
 
-  .container{
-    padding:10px 9px 25px;
+  body{
+    padding:10px 8px 25px;
   }
 
   .hero{
-    padding:24px 13px 21px;
-    border-radius:23px;
+    padding-top:25px;
   }
 
   .logo{
-    width:92px;
-    height:92px;
+    width:105px;
+    height:105px;
   }
 
   .site-title{
-    font-size:25px;
-  }
-
-  .socials{
-    gap:7px;
+    font-size:27px;
   }
 
   .socials a{
-    padding:12px 3px;
-    font-size:12px;
+    min-height:64px;
+    font-size:17px;
   }
 
   .pubg-section{
-    padding:10px;
-    border-radius:23px;
-  }
-
-  .section-title{
-    font-size:20px;
+    padding:15px 10px 10px;
   }
 
   .info{
-    font-size:12px;
-    padding:9px;
+    font-size:14px;
   }
 
-  .price-value{
+  .price{
     font-size:24px;
-  }
-
-  .contact-btn{
-    font-size:17px;
-  }
-}
-
-@media(max-width:360px){
-
-  .info-grid{
-    grid-template-columns:1fr;
-  }
-
-  .account-images{
-    gap:6px;
   }
 }
 </style>
@@ -469,121 +375,107 @@ body:before{
 
 <div class="container">
 
-  <!-- HEADER -->
+<!-- ================= الهيدر ================= -->
 
-  <header class="hero">
+<header class="hero">
 
-    <img
-      class="logo"
-      src="file_00000000323c8210a4643f0333bc8a0a.png"
-      alt="ALI ALZNTANE"
-    >
+  <img
+    class="logo"
+    src="file_00000000323c8210a4643f0333bc8a0a.png"
+    alt="ALI ALZNTANE"
+  >
 
-    <div class="site-title">
-      ALI ALZNTANE
-    </div>
-
-    <div class="site-subtitle">
-      🎮 حسابات PUBG Mobile
-    </div>
-
-    <div class="hero-line"></div>
-
-  </header>
-
-
-  <!-- SOCIAL -->
-
-  <div class="socials">
-
-    <a
-      href="https://www.tiktok.com/@5c.se"
-      target="_blank"
-      rel="noopener"
-    >
-      🎵 TikTok
-    </a>
-
-    <a
-      href="https://wa.me/218928773294"
-      target="_blank"
-      rel="noopener"
-    >
-      💬 WhatsApp
-    </a>
-
-    <a
-      href="https://t.me/ali_alzntane"
-      target="_blank"
-      rel="noopener"
-    >
-      ✈️ Telegram
-    </a>
-
+  <div class="site-title">
+    ALI ALZNTANE
   </div>
 
+  <div class="site-subtitle">
+    PUBG ACCOUNTS &nbsp;•&nbsp; GAMING
+  </div>
 
-  <!-- BUTTON -->
+</header>
+
+
+<!-- ================= التواصل ================= -->
+
+<div class="socials">
 
   <a
-    class="accounts-btn"
-    href="#accounts-section"
+    href="https://www.tiktok.com/@5c.se"
+    target="_blank"
+    rel="noopener"
   >
-    💬 الاستفسار عن حساب
+    تيك توك
   </a>
 
+  <a
+    href="https://wa.me/218928773294"
+    target="_blank"
+    rel="noopener"
+  >
+    واتساب
+  </a>
 
-  <!-- ACCOUNTS -->
+  <a
+    href="https://t.me/ali_alzntane"
+    target="_blank"
+    rel="noopener"
+  >
+    تيليجرام
+  </a>
 
-  <section
-    class="pubg-section"
-    id="accounts-section"
+</div>
+
+
+<!-- ================= الحسابات ================= -->
+
+<a
+  class="accounts-btn"
+  href="#accounts-section"
+>
+  🎮 مشاهدة الحسابات
+</a>
+
+
+<section
+  class="pubg-section"
+  id="accounts-section"
+>
+
+  <h2 class="section-title">
+    🎮 حسابات ببجي موبايل العالمية
+  </h2>
+
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="🔎 ابحث عن صاحب الحساب..."
   >
 
-    <div class="section-head">
 
-      <h2 class="section-title">
-        🎮 الحسابات المتوفرة
-      </h2>
+  <div id="accounts">
 
-      <div class="section-badge">
-        PUBG
-      </div>
-
+    <div class="loading">
+      جاري تحميل الحسابات...
     </div>
 
-
-    <div class="search-wrap">
-
-      <input
-        class="search"
-        id="search"
-        type="search"
-        placeholder="🔎 ابحث عن حساب..."
-      >
-
-    </div>
-
-
-    <div id="accounts">
-
-      <div class="loading">
-        جاري تحميل الحسابات...
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="footer">
-    ALI ALZNTANE ©
   </div>
+
+</section>
+
+
+<div class="footer">
+  ALI ALZNTANE
+</div>
 
 </div>
 
 
 <script type="module">
+
+/* ================= Firebase ================= */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
@@ -595,10 +487,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-
-/* =========================
-   FIREBASE
-========================= */
 
 const firebaseConfig = {
 
@@ -622,19 +510,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
+/* ================= العناصر ================= */
+
 const accountsBox =
   document.getElementById("accounts");
 
 const searchInput =
   document.getElementById("search");
 
-
 let allAccounts = [];
 
 
-/* =========================
-   ESCAPE
-========================= */
+/* ================= حماية النص ================= */
 
 function escapeHTML(value){
 
@@ -648,9 +535,7 @@ function escapeHTML(value){
 }
 
 
-/* =========================
-   LOAD
-========================= */
+/* ================= تحميل الحسابات ================= */
 
 async function loadAccounts(){
 
@@ -683,14 +568,10 @@ async function loadAccounts(){
     allAccounts.sort((a,b)=>{
 
       const aTime =
-        a.createdAt?.seconds ||
-        a.createdAt?.toMillis?.() ||
-        0;
+        a.createdAt?.seconds || 0;
 
       const bTime =
-        b.createdAt?.seconds ||
-        b.createdAt?.toMillis?.() ||
-        0;
+        b.createdAt?.seconds || 0;
 
       return bTime-aTime;
 
@@ -702,13 +583,17 @@ async function loadAccounts(){
 
   }catch(error){
 
-    console.error(error);
+    console.error("Firebase Error:",error);
 
     accountsBox.innerHTML = `
 
       <div class="no-results">
 
-        ❌ حدث خطأ أثناء تحميل الحسابات
+        ❌ تعذر تحميل الحسابات
+
+        <br><br>
+
+        حاول تحديث الصفحة
 
       </div>
 
@@ -719,9 +604,7 @@ async function loadAccounts(){
 }
 
 
-/* =========================
-   RENDER
-========================= */
+/* ================= عرض الحسابات ================= */
 
 function renderAccounts(accounts){
 
@@ -738,13 +621,13 @@ function renderAccounts(accounts){
     `;
 
     return;
+
   }
 
 
   accountsBox.innerHTML =
 
     accounts.map((account,index)=>{
-
 
       const accountNumber =
         index+1;
@@ -774,7 +657,9 @@ function renderAccounts(accounts){
             .filter(Boolean)
             .slice(0,10);
 
-      }else if(account.image){
+      }
+
+      else if(account.image){
 
         images=[account.image];
 
@@ -792,13 +677,9 @@ function renderAccounts(accounts){
             ${images.map(src=>`
 
               <img
-
                 src="${escapeHTML(src)}"
-
                 alt="صورة حساب PUBG"
-
                 loading="lazy"
-
               >
 
             `).join("")}
@@ -814,10 +695,13 @@ function renderAccounts(accounts){
 
         <article class="account">
 
+          <div class="account-top">
 
-          <div class="account-number">
+            <div class="account-number">
 
-            🎮 حساب PUBG #${accountNumber}
+              🎮 حساب #${accountNumber}
+
+            </div>
 
           </div>
 
@@ -825,170 +709,101 @@ function renderAccounts(accounts){
           ${imagesHTML}
 
 
-          <div class="info-grid">
+          <div class="info-list">
 
 
             <div class="info">
 
-              🏆
+              🏆 <b>لفل:</b>
 
-              <span>
-
-                <b>لفل:</b>
-
-                ${escapeHTML(account.level||"-")}
-
-              </span>
+              ${escapeHTML(account.level || "-")}
 
             </div>
 
 
             <div class="info">
 
-              💎
+              💎 <b>عدد الميثك:</b>
 
-              <span>
+              ${escapeHTML(account.mythicCount || "-")}
 
-                <b>الميثك:</b>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
 
-                ${escapeHTML(account.mythicCount||"-")}
+              💪 <b>لفل القوة:</b>
 
-              </span>
-
-            </div>
-
-
-            <div class="info">
-
-              💪
-
-              <span>
-
-                <b>القوة:</b>
-
-                ${escapeHTML(account.power||"-")}
-
-              </span>
+              ${escapeHTML(account.power || "-")}
 
             </div>
 
 
             <div class="info">
 
-              🟡
+              🟡 <b>الميثك الذهبي:</b>
 
-              <span>
-
-                <b>الميثك الذهبي:</b>
-
-                ${escapeHTML(account.goldenMythic||"-")}
-
-              </span>
+              ${escapeHTML(account.goldenMythic || "-")}
 
             </div>
 
 
             <div class="info">
 
-              🔫
+              🔫 <b>أسلحة التطوير:</b>
 
-              <span>
-
-                <b>أسلحة التطوير:</b>
-
-                ${escapeHTML(account.upgradeWeapons||"-")}
-
-              </span>
+              ${escapeHTML(account.upgradeWeapons || "-")}
 
             </div>
 
 
             <div class="info">
 
-              🚘
+              🚘 <b>السيارات:</b>
 
-              <span>
-
-                <b>السيارات:</b>
-
-                ${escapeHTML(account.cars||"-")}
-
-              </span>
+              ${escapeHTML(account.cars || "-")}
 
             </div>
 
 
             <div class="info">
 
-              👕 
+              👕 <b>بدلات X:</b>
 
-              <span>
-
-                <b>بدلات X:</b>
-
-                ${escapeHTML(account.xSuits||"-")}
-
-              </span>
+              ${escapeHTML(account.xSuits || "-")}
 
             </div>
 
 
             <div class="info">
 
-              #️⃣
+              #️⃣ <b>هاشتاقات:</b>
 
-              <span>
-
-                <b>الهاشتاقات:</b>
-
-                ${escapeHTML(account.hashtags||"-")}
-
-              </span>
+              ${escapeHTML(account.hashtags || "-")}
 
             </div>
 
 
             <div class="info">
 
-              👥
+              👥 <b>الرفقاء:</b>
 
-              <span>
-
-                <b>الرفقاء:</b>
-
-                ${escapeHTML(account.friends||"-")}
-
-              </span>
+              ${escapeHTML(account.friends || "-")}
 
             </div>
 
 
             <div class="info">
 
-              📈
+              📈 <b>مستوى الشعبية:</b>
 
-              <span>
-
-                <b>الشعبية:</b>
-
-                ${escapeHTML(account.popularity||"-")}
-
-              </span>
+              ${escapeHTML(account.popularity || "-")}
 
             </div>
 
 
             <div class="info">
 
-              🔗
+              🔗 <b>الربط:</b>
 
-              <span>
-
-                <b>الربط:</b>
-
-                ${escapeHTML(account.binding||"-")}
-
-              </span>
+              ${escapeHTML(account.binding || "-")}
 
             </div>
 
@@ -998,13 +813,13 @@ function renderAccounts(accounts){
 
           <div class="price-box">
 
-            <span class="price-label">
+            <div class="price-title">
 
               💰 سعر الحساب
 
-            </span>
+            </div>
 
-            <div class="price-value">
+            <div class="price">
 
               ${escapeHTML(price)}
 
@@ -1013,29 +828,20 @@ function renderAccounts(accounts){
           </div>
 
 
-          <div class="owner-box">
+          <div class="owner">
 
-            👤 صاحب الحساب:
+            👤 <b>صاحب الحساب:</b>
 
-            <b>
-
-              ${escapeHTML(account.owner||"-")}
-
-            </b>
+            ${escapeHTML(account.owner || "-")}
 
           </div>
 
 
           <a
-
             class="contact-btn"
-
             href="${whatsappLink}"
-
             target="_blank"
-
             rel="noopener"
-
           >
 
             📲 استفسار عن الحساب
@@ -1059,9 +865,7 @@ function renderAccounts(accounts){
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* ================= البحث ================= */
 
 searchInput.addEventListener(
   "input",
@@ -1117,9 +921,7 @@ searchInput.addEventListener(
 );
 
 
-/* =========================
-   START
-========================= */
+/* ================= التشغيل ================= */
 
 loadAccounts();
 
