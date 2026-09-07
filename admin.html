@@ -38,3 +38,4 @@ function startEdit(id){const account=allAccounts.find(a=>a.id===id);if(!account)
 $("cancel").onclick=resetForm;function resetForm(){editingId=null;$("formTitle").textContent="➕ إضافة حساب";$("cancel").classList.add("hidden");["owner","level","mythic","power","golden","weapons","cars","suits","hashtags","friends","popularity","binding","price"].forEach(f=>$(f).value="");$("images").value=""}
 </script>
 </body></html>
+
