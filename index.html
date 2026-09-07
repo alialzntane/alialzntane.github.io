@@ -8,6 +8,10 @@
 <style>
 *{box-sizing:border-box}
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 min-height:100vh;
@@ -102,10 +106,35 @@ height:27px;
 .w{background:#123d2c}
 .tg{background:#12364a}
 
+/* زر الحسابات المتوفرة */
+
+.accounts-btn{
+display:block;
+width:100%;
+padding:15px;
+margin:22px 0 10px;
+border-radius:16px;
+background:#1b2735;
+border:1px solid #405268;
+color:#fff;
+text-decoration:none;
+font-size:17px;
+font-weight:900;
+box-shadow:0 8px 20px #0005;
+transition:.2s;
+}
+
+.accounts-btn:active{
+transform:scale(.97);
+}
+
+/* قسم الحسابات */
+
 .pubg-section{
 margin-top:30px;
 padding-top:25px;
 border-top:1px solid #252d39;
+scroll-margin-top:20px;
 }
 
 .pubg-title{
@@ -271,7 +300,19 @@ d="M21.7 4.2 18.5 19c-.2 1-1 1.2-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3
 </span>
 </a>
 
-<section class="pubg-section">
+<!-- زر الحسابات المتوفرة -->
+
+<a
+class="accounts-btn"
+href="#accounts-section"
+>
+🔥 الحسابات المتوفرة
+</a>
+
+<section
+class="pubg-section"
+id="accounts-section"
+>
 
 <div class="pubg-title">
 🎮 حسابات ببجي موبايل العالمية
@@ -328,7 +369,7 @@ messagingSenderId:
 "859531411276",
 
 appId:
-"1:859531411276:web:445f957d53c22ca4bb59e"
+"1:859531411276:web:445f957d53c22ca4bb59e9"
 
 };
 
