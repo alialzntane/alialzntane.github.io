@@ -6,224 +6,250 @@
 <title>ALI ALZNTANE | PUBG</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
-margin:0;
-min-height:100vh;
-padding:20px;
-font-family:Arial,sans-serif;
-color:#fff;
-background:#07090d;
+  margin:0;
+  min-height:100vh;
+  padding:20px;
+  font-family:Arial,sans-serif;
+  background:#07090d;
+  color:#fff;
 }
 
 .container{
-width:min(100%,700px);
-margin:auto;
+  width:min(100%,700px);
+  margin:auto;
 }
 
+/* الهيدر */
 .header{
-text-align:center;
-padding:20px 10px 25px;
+  text-align:center;
+  padding:15px 10px 25px;
 }
 
 .logo{
-width:110px;
-height:110px;
-object-fit:cover;
-border-radius:50%;
-border:2px solid #263545;
+  width:125px;
+  height:125px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #273342;
+  box-shadow:0 0 25px rgba(255,190,0,.12);
 }
 
 .site-title{
-margin:15px 0 6px;
-font-size:30px;
-font-weight:900;
+  margin:15px 0 7px;
+  font-size:31px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
 .site-subtitle{
-color:#8995a3;
-font-size:15px;
+  color:#8d99a8;
+  font-size:17px;
 }
 
+/* روابط التواصل */
 .socials{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:18px;
+  display:flex;
+  gap:10px;
+  margin-bottom:18px;
 }
 
 .socials a{
-text-decoration:none;
-color:#fff;
-background:#111821;
-border:1px solid #222e3b;
-border-radius:14px;
-padding:12px 16px;
-font-weight:bold;
+  flex:1;
+  text-align:center;
+  padding:15px 8px;
+  border-radius:17px;
+  background:#10161e;
+  border:1px solid #28333f;
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:bold;
 }
 
+/* زر الاستفسار */
 .accounts-btn{
-display:block;
-text-align:center;
-text-decoration:none;
-color:#fff;
-background:#111821;
-border:1px solid #293644;
-border-radius:15px;
-padding:16px;
-margin-bottom:18px;
-font-size:18px;
-font-weight:900;
+  display:block;
+  text-align:center;
+  padding:17px;
+  margin-bottom:20px;
+  border-radius:17px;
+  background:#111821;
+  border:1px solid #293644;
+  color:#fff;
+  text-decoration:none;
+  font-size:19px;
+  font-weight:900;
 }
 
+/* قسم الحسابات */
 .pubg-section{
-background:#0d1219;
-border:1px solid #222d39;
-border-radius:25px;
-padding:14px;
-box-shadow:0 15px 40px rgba(0,0,0,.4);
+  background:#0b1017;
+  border:1px solid #26313d;
+  border-radius:28px;
+  padding:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:16px;
 }
 
 .section-title{
-margin:4px 0 15px;
-text-align:center;
-font-size:23px;
-font-weight:900;
+  margin:0;
+  font-size:25px;
+  font-weight:900;
+}
+
+.badge{
+  padding:9px 13px;
+  border-radius:13px;
+  background:#111a23;
+  border:1px solid #293746;
+  color:#9ba7b5;
+  font-size:14px;
 }
 
 .search{
-width:100%;
-padding:15px;
-outline:none;
-border-radius:15px;
-border:1px solid #263441;
-background:#0b1017;
-color:#fff;
-font-size:16px;
-margin-bottom:18px;
+  width:100%;
+  padding:16px;
+  border-radius:17px;
+  border:1px solid #293746;
+  outline:none;
+  background:#080d13;
+  color:#fff;
+  font-size:17px;
+  margin-bottom:20px;
 }
 
 .search::placeholder{
-color:#697686;
+  color:#657180;
 }
 
+/* بطاقة الحساب */
 .account{
-margin-bottom:20px;
-padding:12px;
-background:
-linear-gradient(145deg,#111821,#0b1017);
-border:1px solid #293541;
-border-radius:24px;
-box-shadow:0 15px 35px rgba(0,0,0,.4);
+  padding:12px;
+  margin-bottom:20px;
+  background:#0d131b;
+  border:1px solid #293541;
+  border-radius:25px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
+/* الصور */
 .account-images{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-bottom:14px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:16px;
 }
 
 .account-images img{
-width:100%;
-aspect-ratio:1/1;
-object-fit:cover;
-border-radius:18px;
-border:1px solid #293746;
-background:#070a0e;
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:17px;
+  border:1px solid #293746;
 }
 
+/* معلومات الحساب */
 .info{
-background:#141b24;
-border-radius:15px;
-padding:13px;
-margin:8px 0;
-color:#e4e9ee;
-font-size:16px;
-line-height:1.5;
+  background:#131a23;
+  border-radius:15px;
+  padding:13px;
+  margin:8px 0;
+  font-size:17px;
+  line-height:1.5;
+  color:#e8edf2;
 }
 
 .info b{
-color:#fff;
+  color:#fff;
 }
 
+/* السعر */
 .price-box{
-margin-top:12px;
-padding:15px;
-text-align:center;
-background:#151d27;
-border:1px solid #344250;
-border-radius:16px;
-font-size:20px;
-font-weight:900;
+  margin-top:10px;
+  padding:15px;
+  border-radius:16px;
+  background:#151d27;
+  border:1px solid #344250;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
 }
 
+/* زر الواتساب */
 .contact-btn{
-display:block;
-text-align:center;
-text-decoration:none;
-color:#fff;
-background:linear-gradient(135deg,#126447,#0b4b36);
-border:1px solid #267d5b;
-border-radius:16px;
-padding:16px 10px;
-margin-top:12px;
-font-size:19px;
-font-weight:900;
+  display:block;
+  margin-top:12px;
+  padding:17px 10px;
+  text-align:center;
+  border-radius:17px;
+  background:#10563e;
+  border:1px solid #26805e;
+  color:#fff;
+  text-decoration:none;
+  font-size:19px;
+  font-weight:900;
 }
 
+/* اسم الموقع داخل البطاقة */
 .card-site-name{
-margin-top:13px;
-text-align:center;
-padding:10px;
-color:#657383;
-font-size:14px;
-font-weight:bold;
-letter-spacing:1px;
+  text-align:center;
+  padding:13px 5px 4px;
+  color:#697585;
+  font-size:14px;
+  letter-spacing:1px;
+  font-weight:bold;
 }
 
 .loading,
 .no-results{
-text-align:center;
-padding:35px 10px;
-color:#788594;
+  text-align:center;
+  padding:35px 10px;
+  color:#788594;
+  font-size:18px;
 }
 
+/* الفوتر */
 .footer{
-text-align:center;
-padding:25px 0 10px;
-color:#5e6b79;
-font-size:13px;
+  text-align:center;
+  padding:25px 0 10px;
+  color:#626e7c;
+  font-size:14px;
 }
 
 @media(max-width:500px){
 
-body{
-padding:12px;
-}
+  body{
+    padding:12px;
+  }
 
-.logo{
-width:105px;
-height:105px;
-}
+  .site-title{
+    font-size:28px;
+  }
 
-.site-title{
-font-size:27px;
-}
+  .socials a{
+    font-size:14px;
+    padding:13px 5px;
+  }
 
-.pubg-section{
-padding:12px;
-}
+  .section-title{
+    font-size:23px;
+  }
 
-.info{
-font-size:15px;
-}
-
-.price-box{
-font-size:19px;
-}
+  .info{
+    font-size:16px;
+  }
 
 }
 </style>
@@ -294,9 +320,17 @@ class="pubg-section"
 id="accounts-section"
 >
 
+<div class="section-head">
+
 <h2 class="section-title">
-🎮 حسابات ببجي موبايل العالمية
+🎮 الحسابات المتوفرة
 </h2>
+
+<div class="badge">
+PUBG
+</div>
+
+</div>
 
 
 <input
@@ -319,7 +353,7 @@ placeholder="🔎 ابحث عن صاحب الحساب..."
 
 
 <div class="footer">
-ALI ALZNTANE
+© ALI ALZNTANE
 </div>
 
 </div>
@@ -438,6 +472,7 @@ accountsBox.innerHTML=`
 `;
 
 return;
+
 }
 
 
