@@ -164,6 +164,25 @@ margin:7px 0;
 font-size:14px;
 }
 
+.contact-btn{
+display:block;
+width:100%;
+text-align:center;
+text-decoration:none;
+color:#fff;
+background:#123d2c;
+border:1px solid #1f6848;
+padding:14px;
+border-radius:14px;
+margin-top:14px;
+font-weight:900;
+font-size:16px;
+}
+
+.contact-btn:active{
+transform:scale(.98);
+}
+
 .empty{
 color:#687486;
 font-size:13px;
@@ -208,6 +227,7 @@ target="_blank"
 rel="noopener"
 >
 <span class="label">تيك توك</span>
+
 <span class="ico t">
 <svg viewBox="0 0 24 24">
 <path
@@ -224,6 +244,7 @@ target="_blank"
 rel="noopener"
 >
 <span class="label">واتساب</span>
+
 <span class="ico w">
 <svg viewBox="0 0 24 24">
 <path
@@ -240,6 +261,7 @@ target="_blank"
 rel="noopener"
 >
 <span class="label">تيليجرام</span>
+
 <span class="ico tg">
 <svg viewBox="0 0 24 24">
 <path
@@ -350,8 +372,10 @@ collection(db,"accounts")
 
 allAccounts=
 snapshot.docs.map(doc=>({
+
 id:doc.id,
 ...doc.data()
+
 }));
 
 
@@ -409,7 +433,7 @@ return;
 container.innerHTML="";
 
 
-accounts.forEach(account=>{
+accounts.forEach((account,index)=>{
 
 const card=
 document.createElement("div");
@@ -466,6 +490,21 @@ data-image="${escapeHTML(url)}"
 }
 
 }
+
+
+const accountNumber=
+index+1;
+
+const price=
+account.price||"-";
+
+
+const message=
+`السلام عليكم، أريد الاستفسار عن حساب رقم ${accountNumber} وسعره ${price}`;
+
+
+const whatsappLink=
+`https://wa.me/218928773294?text=${encodeURIComponent(message)}`;
 
 
 card.innerHTML=`
@@ -538,6 +577,15 @@ ${escapeHTML(account.price||"-")}
 👤 <b>صاحب الحساب:</b>
 ${escapeHTML(account.owner||"-")}
 </div>
+
+<a
+class="contact-btn"
+href="${whatsappLink}"
+target="_blank"
+rel="noopener"
+>
+📲 استفسار عن الحساب
+</a>
 
 `;
 
