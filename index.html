@@ -3,787 +3,251 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ALI ALZNTANE | PUBG</title>
-
+<title>ALI ALZNTANE | PUBG Accounts</title>
 <style>
 *{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-    margin:0;
-    min-height:100vh;
-    padding:20px;
-    font-family:Arial,sans-serif;
-    color:#fff;
-    background:#07090d;
+:root{--bg:#050a10;--panel:#0b1420;--panel2:#0f1a27;--line:#26384c;--gold:#f4c21b;--muted:#9aa8b8}
+body{margin:0;min-height:100vh;background:#050a10;color:#fff;font-family:Arial,Tahoma,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 0,#182b40 0,#07101a 38%,#050a10 75%)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.35;background:linear-gradient(135deg,transparent 45%,#102033 50%,transparent 55%)}
+button,input{font:inherit}
+button{cursor:pointer}
+.site{width:min(1180px,96vw);margin:auto;padding:18px 0 35px}
+.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border:1px solid #1e3043;border-radius:22px;background:rgba(5,13,22,.92);box-shadow:0 15px 45px #0008}
+.top-icon{width:45px;height:45px;border:0;background:transparent;color:#fff;font-size:30px}
+.top-logo{width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid #8f6d0a;box-shadow:0 0 25px #d5a70044}
+.hero{display:grid;grid-template-columns:1fr 1.35fr;gap:22px;margin-top:18px;align-items:start}
+.intro,.catalog{border:1px solid #213349;border-radius:28px;background:rgba(7,15,24,.91);box-shadow:0 20px 70px #0007}
+.intro{padding:28px 28px 34px;text-align:center;min-height:700px}
+.big-logo{width:185px;height:185px;border-radius:50%;object-fit:cover;border:2px solid #9a760b;box-shadow:0 0 35px #d2a40038;margin:0 auto 20px}
+h1{font-size:40px;letter-spacing:1px;margin:0}
+.subtitle{color:#9ca9b9;margin:10px 0 30px;font-size:17px}
+.social{display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:#fff;padding:15px 18px;margin:14px 0;border:1px solid #263a50;border-radius:19px;background:linear-gradient(90deg,#0d1723,#101c2a);font-size:19px;font-weight:800;transition:.2s}
+.social:hover{border-color:var(--gold);transform:translateY(-2px)}
+.social-icon{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:26px}
+.t{background:#111927}.w{background:#123d2c}.tg{background:#123b55}.game{background:#182231}
+.browse{margin-top:25px;padding-top:22px;border-top:1px solid #26384c}
+.browse-title{font-size:28px;font-weight:900;margin-bottom:10px}
+.browse-sub{color:var(--muted);font-size:14px}
+.catalog{padding:25px 24px}
+.catalog-title{font-size:32px;font-weight:900;margin:0 0 18px}
+.search{position:relative;margin-bottom:15px}
+.search input{width:100%;height:55px;border-radius:17px;border:1px solid #30455d;background:#08121d;color:#fff;padding:0 52px 0 16px;outline:none}
+.search span{position:absolute;right:17px;top:12px;font-size:26px;color:#91a1b3}
+.filters{display:flex;gap:9px;overflow:auto;padding-bottom:8px;margin-bottom:10px}
+.filter{white-space:nowrap;border:1px solid #273b52;background:#09131f;color:#fff;border-radius:22px;padding:10px 18px}
+.filter.active{border-color:var(--gold);color:#ffd83d;box-shadow:0 0 14px #e4b3002c}
+.accounts{display:grid;gap:16px}
+.account{position:relative;border:1px solid #23384e;border-radius:22px;background:linear-gradient(135deg,#0d1825,#09121c);padding:17px;overflow:hidden}
+.account:hover{border-color:#8c6c12}
+.account-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.account-title{font-size:20px;font-weight:900}.crown{color:#ffd22e;font-size:21px}
+.account-main{display:grid;grid-template-columns:185px 1fr;gap:15px;align-items:center}
+.account-img{width:100%;height:175px;object-fit:cover;border-radius:16px;border:1px solid #3a4b5e;background:#0a111a;cursor:pointer}
+.meta{display:grid;gap:8px;color:#d9e0e7;font-size:15px}
+.meta div{display:flex;align-items:center;gap:7px}
+.meta b{color:#fff}.meta .value{color:#dce5ee}
+.account-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+.price{font-size:29px;font-weight:900;color:#ffc928}
+.details{border:1px solid var(--gold);background:#111b27;color:#ffd43a;border-radius:14px;padding:11px 18px;font-weight:900}
+.details:hover{background:#2a2410}
+.empty,.loading{text-align:center;color:#8392a4;padding:35px}
+footer{text-align:center;color:#687486;font-size:12px;margin-top:18px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
+.modal.show{display:flex}
+.modal-box{width:min(620px,100%);max-height:90vh;overflow:auto;border:1px solid #3a4654;border-radius:25px;background:#09131e;padding:22px;box-shadow:0 30px 90px #000}
+.modal-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#1b2735;color:#fff;border-radius:12px;width:42px;height:42px;font-size:22px}
+.modal h2{margin:0}.modal-img{width:100%;max-height:300px;object-fit:cover;border-radius:17px;margin:15px 0}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.detail-item{background:#111d2a;border-radius:12px;padding:10px;font-size:14px}.wa{display:block;text-align:center;text-decoration:none;margin-top:15px;background:#16864d;color:#fff;padding:14px;border-radius:14px;font-weight:900}
+@media(max-width:850px){
+ .site{width:min(94vw,620px)}
+ .hero{grid-template-columns:1fr}
+ .intro{min-height:auto}
+ .topbar{height:72px}
+ .top-logo{width:58px;height:58px}
+ .big-logo{width:155px;height:155px}
+ h1{font-size:30px}
+ .catalog-title{font-size:25px}
 }
-
-.bg{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    background:radial-gradient(circle at 50% 15%,#1b2635,#0b1018 40%,#07090d 75%);
-}
-
-.card{
-    width:min(92vw,430px);
-    padding:30px 20px;
-    margin:auto;
-    text-align:center;
-    border-radius:28px;
-    background:rgba(12,15,21,.96);
-    border:1px solid #252d39;
-    box-shadow:0 25px 80px #0008;
-}
-
-.logo{
-    width:155px;
-    height:155px;
-    margin:auto auto 18px;
-    border-radius:30px;
-    overflow:hidden;
-    border:1px solid #303b4b;
-    box-shadow:0 15px 35px #0008;
-}
-
-.logo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-h1{
-    margin:0;
-    font-size:29px;
-    letter-spacing:1px;
-}
-
-.subtitle{
-    margin:8px 0 25px;
-    color:#9ca7b5;
-    font-size:14px;
-}
-
-.social{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    text-decoration:none;
-    color:#fff;
-    padding:13px 15px;
-    margin:11px 0;
-    border-radius:17px;
-    background:#151a22;
-    border:1px solid #29313d;
-    font-weight:700;
-    transition:.2s;
-}
-
-.social:hover{
-    background:#1b222c;
-    transform:translateY(-1px);
-}
-
-.label{
-    flex:1;
-    text-align:center;
-    font-size:17px;
-}
-
-.ico{
-    width:44px;
-    height:44px;
-    min-width:44px;
-    border-radius:13px;
-    display:grid;
-    place-items:center;
-}
-
-.ico svg{
-    width:27px;
-    height:27px;
-}
-
-.t{background:#171d28}
-.w{background:#123d2c}
-.tg{background:#12364a}
-
-.accounts-btn{
-    display:block;
-    width:100%;
-    padding:15px;
-    margin:22px 0 5px;
-    border-radius:16px;
-    background:#151a22;
-    border:1px solid #3a4655;
-    color:#fff;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:900;
-    transition:.2s;
-}
-
-.accounts-btn:hover{background:#1c2430}
-.accounts-btn:active{transform:scale(.97)}
-
-.pubg-section{
-    margin-top:28px;
-    padding-top:25px;
-    border-top:1px solid #252d39;
-    scroll-margin-top:20px;
-}
-
-.pubg-title{
-    font-size:22px;
-    font-weight:900;
-    margin-bottom:15px;
-}
-
-.search-box{
-    width:100%;
-    padding:14px 15px;
-    border-radius:14px;
-    border:1px solid #303b4b;
-    background:#080c12;
-    color:#fff;
-    outline:none;
-    margin:5px 0 15px;
-    font-size:14px;
-}
-
-.search-box:focus{border-color:#596778}
-
-.account{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(145deg,#151b24,#0d1219);
-    border:1px solid #303a48;
-    border-radius:22px;
-    padding:16px;
-    margin-top:18px;
-    text-align:right;
-    box-shadow:0 12px 30px #0007;
-}
-
-.account::before{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-    left:0;
-    height:3px;
-    background:linear-gradient(90deg,#263442,#738294,#263442);
-}
-
-.account-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.account-title{
-    font-size:18px;
-    font-weight:900;
-    margin:0;
-}
-
-.account-number{
-    background:#202936;
-    border:1px solid #3a4656;
-    padding:6px 10px;
-    border-radius:10px;
-    font-size:12px;
-    font-weight:900;
-    color:#dce3eb;
-    white-space:nowrap;
-}
-
-.account-images{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:9px;
-    margin-bottom:15px;
-}
-
-.account-images.single{
-    grid-template-columns:1fr;
-}
-
-.account-images img{
-    width:100%;
-    height:145px;
-    object-fit:cover;
-    border-radius:13px;
-    border:1px solid #303b4b;
-    cursor:pointer;
-    transition:.2s;
-    background:#080c12;
-}
-
-.account-images img:hover{transform:scale(1.02)}
-
-.info{
-    background:#151c26;
-    border:1px solid #222c39;
-    border-radius:13px;
-    padding:10px;
-    margin:7px 0;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.info b{color:#fff}
-
-.contact-btn{
-    display:block;
-    width:100%;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    background:#123d2c;
-    border:1px solid #1f6848;
-    padding:14px;
-    border-radius:14px;
-    margin-top:15px;
-    font-weight:900;
-    font-size:15px;
-    transition:.2s;
-}
-
-.contact-btn:hover{background:#165239}
-.contact-btn:active{transform:scale(.98)}
-
-.account-footer{
-    text-align:center;
-    color:#687486;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    margin-top:15px;
-    padding-top:12px;
-    border-top:1px solid #252d39;
-}
-
-.loading{
-    padding:25px 10px;
-    color:#9ca7b5;
-    text-align:center;
-    font-size:14px;
-}
-
-.empty{
-    color:#8793a2;
-    font-size:13px;
-    padding:20px 10px;
-    text-align:center;
-}
-
-.error{
-    color:#ff9b9b;
-    background:#241416;
-    border:1px solid #613238;
-    border-radius:14px;
-    padding:15px;
-    font-size:13px;
-    line-height:1.7;
-    text-align:center;
-}
-
-footer{
-    margin-top:22px;
-    color:#687486;
-    font-size:12px;
-}
-
-@media(max-width:360px){
-    .card{padding:25px 14px}
-    .account{padding:13px}
-    .account-title{font-size:16px}
-    .account-number{font-size:11px}
+@media(max-width:520px){
+ .site{width:100%;padding:0 10px 25px}
+ .topbar{border-radius:0 0 20px 20px}
+ .intro,.catalog{border-radius:22px;padding:18px}
+ .account-main{grid-template-columns:125px 1fr}
+ .account-img{height:125px}
+ .meta{font-size:13px}
+ .account-bottom{align-items:flex-end}
+ .price{font-size:23px}
+ .details{padding:10px 12px;font-size:13px}
+ .detail-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
+<div class="site">
+<header class="topbar">
+<button class="top-icon" aria-label="القائمة">☰</button>
+<img class="top-logo" src="file_00000000323c8210a4643f0333bc8a0a.png" alt="ALI ALZNTANE">
+<button class="top-icon" aria-label="بحث" onclick="document.getElementById('searchBox').focus()">⌕</button>
+</header>
 
-<div class="bg"></div>
+<div class="hero">
+<section class="intro">
+<img class="big-logo" src="file_00000000323c8210a4643f0333bc8a0a.png" alt="ALI ALZNTANE">
+<h1>ALI ALZNTANE</h1>
+<div class="subtitle">PUBG ACCOUNTS • GAMING</div>
 
-<main class="card">
+<a class="social" href="https://www.tiktok.com/@5c.se" target="_blank" rel="noopener"><span>تيك توك</span><span class="social-icon t">♪</span></a>
+<a class="social" href="https://wa.me/218928773294" target="_blank" rel="noopener"><span>واتساب</span><span class="social-icon w">◉</span></a>
+<a class="social" href="https://t.me/ali_alzntane" target="_blank" rel="noopener"><span>تيليجرام</span><span class="social-icon tg">➤</span></a>
+<a class="social" href="#accounts"><span>تصفح حسابات ببجي</span><span class="social-icon game">🎮</span></a>
 
-    <div class="logo">
-        <img src="file_00000000323c8210a4643f0333bc8a0a.png" alt="ALI ALZNTANE">
-    </div>
+<div class="browse">
+<div class="browse-title">🌐 حسابات ببجي موبايل العالمية</div>
+<div class="browse-sub">حسابات قوية ومميزة بأسعار مختلفة — اختر حسابك الآن 🔥</div>
+</div>
+</section>
 
-    <h1>ALI ALZNTANE</h1>
-    <p class="subtitle">PUBG ACCOUNTS • GAMING</p>
+<section class="catalog" id="accounts-section">
+<h2 class="catalog-title">🌐 حسابات ببجي موبايل العالمية</h2>
+<div class="search"><span>⌕</span><input id="searchBox" placeholder="ابحث عن حسابك المفضل..."></div>
+<div class="filters">
+<button class="filter active" data-filter="all">الكل</button>
+<button class="filter" data-filter="featured">حسابات مميزة</button>
+<button class="filter" data-filter="strong">حسابات قوية</button>
+<button class="filter" data-filter="cheap">حسابات رخيصة</button>
+</div>
+<div id="accounts"><div class="loading">جاري تحميل الحسابات...</div></div>
+</section>
+</div>
+<footer>ALI ALZNTANE • PUBG ACCOUNTS</footer>
+</div>
 
-    <a class="social" href="https://www.tiktok.com/@5c.se" target="_blank" rel="noopener">
-        <span class="label">تيك توك</span>
-        <span class="ico t">
-            <svg viewBox="0 0 24 24">
-                <path fill="white" d="M15.8 3c.3 1.8 1.3 3 3.2 3.3v3.1c-1.2 0-2.3-.3-3.2-.9v6.2c0 3.7-2.5 6-5.8 6-2.9 0-5.2-2.2-5.2-5 0-3.1 2.7-5.3 5.9-5.1v3.2c-1.7-.2-2.8.7-2.8 1.9 0 1 .8 1.8 1.9 1.8 1.3 0 2.1-.9 2.1-2.5V3h3.9z"/>
-            </svg>
-        </span>
-    </a>
-
-    <a class="social" href="https://wa.me/218928773294" target="_blank" rel="noopener">
-        <span class="label">واتساب</span>
-        <span class="ico w">
-            <svg viewBox="0 0 24 24">
-                <path fill="white" d="M12 3a8.7 8.7 0 0 0-7.6 13l-1 4 4.1-1a8.7 8.7 0 1 0 4.5-16zm0 15.7c-1.4 0-2.7-.4-3.8-1.1l-.3-.2-2.4.6.6-2.3A7 7 0 1 1 12 18.7zm3.8-5.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1-1.1-.5-1.9-1.1-2.6-2.1-.1-.2-.1-.3.1-.4l.5-.6c.1-.1.1-.2.1-.4l-.6-1.4c-.1-.2-.3-.2-.4-.2h-.4c-.1 0-.4.1-.5.3-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.2 1.4 2.2 3.5 3 .5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
-            </svg>
-        </span>
-    </a>
-
-    <a class="social" href="https://t.me/ali_alzntane" target="_blank" rel="noopener">
-        <span class="label">تيليجرام</span>
-        <span class="ico tg">
-            <svg viewBox="0 0 24 24">
-                <path fill="white" d="M21.7 4.2 18.5 19c-.2 1-1 1.2-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.9 12.4.9 10.8c-1.1-.3-1.1-1 .2-1.5L20.5 2c.9-.3 1.7.2 1.2 2.2z"/>
-            </svg>
-        </span>
-    </a>
-
-    <a class="accounts-btn" href="#accounts-section">
-        🎮 تصفح حسابات ببجي
-    </a>
-
-    <section class="pubg-section" id="accounts-section">
-
-        <div class="pubg-title">
-            🎮 حسابات ببجي موبايل العالمية
-        </div>
-
-        <input
-            id="searchBox"
-            class="search-box"
-            type="search"
-            placeholder="🔎 ابحث عن صاحب الحساب..."
-            autocomplete="off"
-        >
-
-        <div id="accounts">
-            <div class="loading">جاري تحميل الحسابات...</div>
-        </div>
-
-    </section>
-
-    <footer>ALI ALZNTANE</footer>
-
-</main>
+<div class="modal" id="modal">
+<div class="modal-box">
+<div class="modal-head"><h2 id="modalTitle">تفاصيل الحساب</h2><button class="close" onclick="closeModal()">×</button></div>
+<div id="modalBody"></div>
+</div>
+</div>
 
 <script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import {getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
-import {
-    getFirestore,
-    collection,
-    getDocs
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-
-/* =========================
-   إعداد Firebase
-========================= */
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyD1W0255eoUqKur7PohKhm_Z83oj43wTVI",
-
-    authDomain:
-    "ali-pubg-4418e.firebaseapp.com",
-
-    projectId:
-    "ali-pubg-4418e",
-
-    storageBucket:
-    "ali-pubg-4418e.firebasestorage.app",
-
-    messagingSenderId:
-    "859531411276",
-
-    appId:
-    "1:859531411276:web:445f957d53c22ca4bb59e9"
+const firebaseConfig={
+ apiKey:"AIzaSyD1W0255eoUqKur7PohKhm_Z83oj43wTVI",
+ authDomain:"ali-pubg-4418e.firebaseapp.com",
+ projectId:"ali-pubg-4418",
+ storageBucket:"ali-pubg-4418.firebasestorage.app",
+ messagingSenderId:"859531411276",
+ appId:"1:859531411276:web:445f957d53c22ca4bb59e9"
 };
-
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-let allAccounts = [];
-
-
-/* حماية النصوص */
+const db=getFirestore(initializeApp(firebaseConfig));
+let allAccounts=[];
+let currentFilter="all";
 
 function escapeHTML(value){
-
-    const div = document.createElement("div");
-
-    div.textContent = value ?? "";
-
-    return div.innerHTML;
+ const div=document.createElement("div"); div.textContent=value ?? ""; return div.innerHTML;
 }
-
-
-/* =========================
-   جلب الحسابات
-========================= */
+function val(a,...keys){
+ for(const k of keys) if(a[k]!==undefined && a[k]!==null && a[k]!=="") return a[k];
+ return "-";
+}
+function imageOf(a){
+ if(Array.isArray(a.images)&&a.images.length){
+  const x=a.images[0]; return typeof x==="string"?x:(x?.url||"");
+ }
+ return a.image||a.photo||"";
+}
+function priceNumber(a){
+ const n=parseFloat(String(val(a,"price")).replace(/[^\d.]/g,"")); return isNaN(n)?0:n;
+}
 
 async function loadAccounts(){
-
-    const container =
-        document.getElementById("accounts");
-
-    container.innerHTML =
-        '<div class="loading">جاري تحميل الحسابات...</div>';
-
-    try{
-
-        const snapshot =
-            await getDocs(
-                collection(db,"accounts")
-            );
-
-        allAccounts =
-            snapshot.docs.map(doc => ({
-
-                id: doc.id,
-                ...doc.data()
-
-            }));
-
-
-        /* الأحدث أولاً */
-
-        allAccounts.sort((a,b)=>{
-
-            const aTime =
-                a.createdAt?.toMillis
-                ? a.createdAt.toMillis()
-                : Number(a.createdAt || 0);
-
-            const bTime =
-                b.createdAt?.toMillis
-                ? b.createdAt.toMillis()
-                : Number(b.createdAt || 0);
-
-            return bTime - aTime;
-
-        });
-
-
-        renderAccounts(allAccounts);
-
-    }catch(error){
-
-        console.error("Firebase error:",error);
-
-        container.innerHTML = `
-            <div class="error">
-                ⚠️ تعذر تحميل الحسابات.<br><br>
-                تأكد من أن Firestore يسمح للزوار بقراءة مجموعة
-                <b>accounts</b>.
-            </div>
-        `;
-
-    }
+ const box=document.getElementById("accounts");
+ try{
+  const snap=await getDocs(collection(db,"accounts"));
+  allAccounts=snap.docs.map(d=>({id:d.id,...d.data()}));
+  allAccounts.sort((a,b)=>{
+   const at=a.createdAt?.toMillis?a.createdAt.toMillis():Number(a.createdAt||0);
+   const bt=b.createdAt?.toMillis?b.createdAt.toMillis():Number(b.createdAt||0);
+   return bt-at;
+  });
+  renderAccounts();
+ }catch(e){
+  console.error(e); box.innerHTML='<div class="empty">تعذر تحميل الحسابات حالياً.</div>';
+ }
 }
 
-
-/* =========================
-   عرض الحسابات
-========================= */
-
-function renderAccounts(accounts){
-
-    const container =
-        document.getElementById("accounts");
-
-
-    if(!accounts.length){
-
-        container.innerHTML =
-            '<div class="empty">لا توجد حسابات مضافة حالياً.</div>';
-
-        return;
-    }
-
-
-    container.innerHTML = "";
-
-
-    accounts.forEach((account,index)=>{
-
-        const card =
-            document.createElement("div");
-
-        card.className = "account";
-
-
-        /* الصور */
-
-        let imagesHTML = "";
-
-
-        if(
-            Array.isArray(account.images) &&
-            account.images.length
-        ){
-
-            const images =
-                account.images
-                .map(image=>{
-
-                    if(typeof image === "string"){
-                        return image;
-                    }
-
-                    return image?.url || "";
-
-                })
-                .filter(Boolean);
-
-
-            if(images.length){
-
-                const imageClass =
-                    images.length === 1
-                    ? "account-images single"
-                    : "account-images";
-
-
-                imagesHTML = `
-
-                    <div class="${imageClass}">
-
-                        ${images.map(url=>`
-
-                            <img
-                                src="${escapeHTML(url)}"
-                                alt="صورة حساب PUBG"
-                                loading="lazy"
-                                data-image="${escapeHTML(url)}"
-                                onerror="this.style.display='none'"
-                            >
-
-                        `).join("")}
-
-                    </div>
-
-                `;
-            }
-        }
-
-
-        /* رقم الحساب */
-
-        const accountNumber =
-            index + 1;
-
-
-        /* السعر */
-
-        const price =
-            account.price || "-";
-
-
-        /* رسالة واتساب */
-
-        const message =
-            `السلام عليكم أريد الاستفسار عن حساب رقم ${accountNumber} وسعره ${price} وسيط عشاري`;
-
-
-        const whatsappLink =
-            `https://wa.me/218928773294?text=${encodeURIComponent(message)}`;
-
-
-        /* البطاقة */
-
-        card.innerHTML = `
-
-            <div class="account-head">
-
-                <h2 class="account-title">
-                    🎮 حساب ببجي موبايل
-                </h2>
-
-                <span class="account-number">
-                    حساب #${accountNumber}
-                </span>
-
-            </div>
-
-
-            ${imagesHTML}
-
-
-            <div class="info">
-                🏆 <b>لفل:</b>
-                ${escapeHTML(account.level || "-")}
-            </div>
-
-
-            <div class="info">
-                💎 <b>عدد الميثك:</b>
-                ${escapeHTML(account.mythic || "-")}
-                &nbsp; | &nbsp;
-                💪 <b>لفل القوة:</b>
-                ${escapeHTML(account.power || "-")}
-            </div>
-
-
-            <div class="info">
-                🟡 <b>الميثك الذهبي:</b>
-                ${escapeHTML(account.golden || "-")}
-            </div>
-
-
-            <div class="info">
-                🔫 <b>أسلحة التطوير:</b>
-                ${escapeHTML(account.weapons || "-")}
-            </div>
-
-
-            <div class="info">
-                🚗 <b>السيارات:</b>
-                ${escapeHTML(account.cars || "-")}
-            </div>
-
-
-            <div class="info">
-                👕 <b>بدلات X:</b>
-                ${escapeHTML(account.suits || "-")}
-            </div>
-
-
-            <div class="info">
-                #️⃣ <b>هاشتاقات:</b>
-                ${escapeHTML(account.hashtags || "-")}
-            </div>
-
-
-            <div class="info">
-                👥 <b>الرفقاء:</b>
-                ${escapeHTML(account.friends || "-")}
-            </div>
-
-
-            <div class="info">
-                📈 <b>مستوى الشعبية:</b>
-                ${escapeHTML(account.popularity || "-")}
-            </div>
-
-
-            <div class="info">
-                🔗 <b>الربط:</b>
-                ${escapeHTML(account.binding || "-")}
-            </div>
-
-
-            <div class="info">
-                💰 <b>السعر:</b>
-                ${escapeHTML(account.price || "-")}
-            </div>
-
-
-            <div class="info">
-                👤 <b>صاحب الحساب:</b>
-                ${escapeHTML(account.owner || "-")}
-            </div>
-
-
-            <a
-                class="contact-btn"
-                href="${whatsappLink}"
-                target="_blank"
-                rel="noopener"
-            >
-                📲 استفسار عن الحساب
-            </a>
-
-
-            <div class="account-footer">
-                ALI ALZNTANE
-            </div>
-
-        `;
-
-
-        container.appendChild(card);
-
-    });
-
-
-    /* فتح الصور */
-
-    container
-    .querySelectorAll("[data-image]")
-    .forEach(image=>{
-
-        image.onclick = ()=>{
-
-            window.open(
-                image.dataset.image,
-                "_blank"
-            );
-
-        };
-
-    });
-
+function renderAccounts(){
+ let list=[...allAccounts];
+ const q=document.getElementById("searchBox").value.trim().toLowerCase();
+ if(q) list=list.filter(a=>JSON.stringify(a).toLowerCase().includes(q));
+
+ if(currentFilter==="cheap") list=list.filter(a=>priceNumber(a)>0&&priceNumber(a)<=30);
+ if(currentFilter==="strong") list=list.filter(a=>Number(val(a,"level","lvl"))>=60);
+ if(currentFilter==="featured") list=list.filter(a=>a.featured===true||a.featured==="true"||a.featured==="yes");
+
+ const box=document.getElementById("accounts");
+ if(!list.length){box.innerHTML='<div class="empty">لا توجد حسابات مطابقة حالياً.</div>';return}
+ box.innerHTML="";
+ list.forEach((a,i)=>{
+  const img=imageOf(a);
+  const num=val(a,"accountNumber","number","accountNo","id");
+  const level=val(a,"level","lvl");
+  const rank=val(a,"rank","tier","rating");
+  const outfits=val(a,"outfits","suits","clothes");
+  const region=val(a,"region","area");
+  const price=val(a,"price");
+  const card=document.createElement("article");
+  card.className="account";
+  card.innerHTML=`
+   <div class="account-head"><div class="account-title">حساب #${escapeHTML(num)}</div><div class="crown">♛</div></div>
+   <div class="account-main">
+    ${img?`<img class="account-img" src="${escapeHTML(img)}" alt="صورة حساب PUBG">`:`<div class="account-img" style="display:grid;place-items:center">PUBG</div>`}
+    <div class="meta">
+     <div>◈ <b>المستوى:</b> <span class="value">${escapeHTML(level)}</span></div>
+     <div>🏅 <b>الرتبة:</b> <span class="value">${escapeHTML(rank)}</span></div>
+     <div>👕 <b>عدد الأزياء:</b> <span class="value">${escapeHTML(outfits)}</span></div>
+     <div>🌐 <b>المنطقة:</b> <span class="value">${escapeHTML(region)}</span></div>
+    </div>
+   </div>
+   <div class="account-bottom"><div class="price">${escapeHTML(price)} د.ل</div><button class="details">تفاصيل الحساب 👁</button></div>`;
+  card.querySelector(".details").onclick=()=>openDetails(a,i);
+  if(img) card.querySelector(".account-img").onclick=()=>window.open(img,"_blank");
+  box.appendChild(card);
+ });
 }
 
-
-/* =========================
-   البحث
-========================= */
-
-document
-.getElementById("searchBox")
-.addEventListener("input",function(){
-
-    const text =
-        this.value
-        .trim()
-        .toLowerCase();
-
-
-    if(!text){
-
-        renderAccounts(allAccounts);
-
-        return;
-    }
-
-
-    const filtered =
-        allAccounts.filter(account =>
-
-            JSON.stringify(account)
-            .toLowerCase()
-            .includes(text)
-
-        );
-
-
-    renderAccounts(filtered);
-
+window.openDetails=function(a){
+ const img=imageOf(a);
+ const num=val(a,"accountNumber","number","accountNo","id");
+ const price=val(a,"price");
+ const fields=[
+  ["المستوى",val(a,"level","lvl")],["الرتبة",val(a,"rank","tier","rating")],
+  ["عدد الميثك",val(a,"mythic")],["الميثك الذهبي",val(a,"golden")],
+  ["لفل القوة",val(a,"power")],["أسلحة التطوير",val(a,"weapons")],
+  ["السيارات",val(a,"cars")],["البدلات",val(a,"suits","outfits","clothes")],
+  ["الهاشتاقات",val(a,"hashtags")],["الرفقاء",val(a,"friends")],
+  ["الشعبية",val(a,"popularity")],["الربط",val(a,"binding")],
+  ["المنطقة",val(a,"region","area")],["صاحب الحساب",val(a,"owner")]
+ ];
+ document.getElementById("modalTitle").textContent=`تفاصيل الحساب #${num}`;
+ document.getElementById("modalBody").innerHTML=
+  (img?`<img class="modal-img" src="${escapeHTML(img)}" alt="حساب PUBG">`:"")+
+  `<div class="detail-grid">${fields.map(x=>`<div class="detail-item"><b>${escapeHTML(x[0])}:</b> ${escapeHTML(x[1])}</div>`).join("")}</div>`+
+  `<div class="detail-item" style="margin-top:8px;text-align:center;font-size:18px;color:#ffd13a"><b>السعر:</b> ${escapeHTML(price)} د.ل</div>`+
+  `<a class="wa" target="_blank" rel="noopener" href="https://wa.me/218928773294?text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن حساب PUBG رقم #"+num+" بسعر "+price+" د.ل.")}">📲 استفسار عن الحساب عبر واتساب</a>`;
+ document.getElementById("modal").classList.add("show");
+};
+window.closeModal=function(){document.getElementById("modal").classList.remove("show")};
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+document.getElementById("searchBox").addEventListener("input",renderAccounts);
+document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active"); currentFilter=btn.dataset.filter; renderAccounts();
 });
-
-
-/* تشغيل تحميل الحسابات */
-
 loadAccounts();
-
 </script>
-
 </body>
 </html>
