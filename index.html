@@ -81,6 +81,23 @@ footer{text-align:center;color:#687486;font-size:12px;margin-top:18px}
  .details{padding:10px 12px;font-size:13px}
  .detail-grid{grid-template-columns:1fr}
 }
+
+/* بطاقة الحساب - شكل قريب من التصميم المرجعي */
+.account{padding:17px 17px 14px}
+.account-main{grid-template-columns:185px minmax(0,1fr)!important}
+.account-img{display:block!important;height:175px!important;aspect-ratio:1/1;object-fit:cover!important;overflow:hidden;border-radius:16px}
+.account-img.no-image{display:grid!important;place-items:center;background:#101c29}
+.meta{min-width:0}
+.meta div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.account-bottom{border-top:0;margin-top:13px}
+@media(max-width:520px){
+ .account-main{grid-template-columns:125px minmax(0,1fr)!important}
+ .account-img{height:125px!important}
+ .account-title{font-size:19px}
+ .meta{gap:7px}
+ .meta div{font-size:12.5px}
+}
+
 </style>
 </head>
 <body>
@@ -202,9 +219,14 @@ function renderAccounts(){
   const card=document.createElement("article");
   card.className="account";
   card.innerHTML=`
-   <div class="account-head"><div class="account-title">حساب #${escapeHTML(num)}</div><div class="crown">♛</div></div>
+   <div class="account-head">
+     <div class="account-title">حساب #${escapeHTML(num)}</div>
+     <div class="crown">♛</div>
+   </div>
    <div class="account-main">
-    ${img?`<img class="account-img" src="${escapeHTML(img)}" alt="صورة حساب PUBG">`:`<div class="account-img" style="display:grid;place-items:center">PUBG</div>`}
+    ${img
+      ? `<img class="account-img" src="${escapeHTML(img)}" alt="صورة حساب PUBG">`
+      : `<div class="account-img no-image">PUBG</div>`}
     <div class="meta">
      <div>◈ <b>المستوى:</b> <span class="value">${escapeHTML(level)}</span></div>
      <div>🏅 <b>الرتبة:</b> <span class="value">${escapeHTML(rank)}</span></div>
@@ -212,7 +234,10 @@ function renderAccounts(){
      <div>🌐 <b>المنطقة:</b> <span class="value">${escapeHTML(region)}</span></div>
     </div>
    </div>
-   <div class="account-bottom"><div class="price">${escapeHTML(price)} د.ل</div><button class="details">تفاصيل الحساب 👁</button></div>`;
+   <div class="account-bottom">
+     <div class="price">${escapeHTML(price)} د.ل</div>
+     <button class="details">تفاصيل الحساب 👁</button>
+   </div>`;
   card.querySelector(".details").onclick=()=>openDetails(a,i);
   if(img) card.querySelector(".account-img").onclick=()=>window.open(img,"_blank");
   box.appendChild(card);
